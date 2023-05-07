@@ -1,18 +1,17 @@
 /* reset */
 
-*, html {
+/* *, html {
     padding: 0;
     margin: 0;
-}
+} */
 
 /* login page */
 
-body {
+/* body {
     background: #6B22C9;
 }
 
 .title {
-    background: #440791;
     color: #ffffff;
     margin: 2rem 0 2rem 0;
     padding: 1rem;
@@ -22,4 +21,4 @@ body {
 #login {
     display: flex;
     flex-direction: column;
-}
+} */

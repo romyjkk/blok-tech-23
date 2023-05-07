@@ -1,1 +1,15 @@
-<h1>Log in!</h1>
+<h1 class="title">MovieMatch</h1>
+
+{{#each myName}}
+<p>{{this.firstname}}</p>
+{{/each}}
+
+<form id="login">
+    <input type="text" id="username">
+    <label for id="username">Username</label>
+
+    <input type="password" id="password">
+    <label for id="password">Password</label>
+
+    <button id="submit">Log in!</button>
+</form>

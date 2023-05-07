@@ -1,5 +1,8 @@
-$primaryColor: #440791;
-
-h1 {
-    color: $primaryColor;
-}
+@import 'helpers/mixins';
+@import 'helpers/variables';
+@import 'reset';
+@import 'text';
+@import 'structure';
+@import 'header';
+@import 'form';
+@import 'footer';

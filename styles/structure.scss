@@ -1,0 +1,8 @@
+@import 'helpers/variables';
+@import 'helpers/mixins';
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: $primaryColor;
+}

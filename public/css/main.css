@@ -1,3 +1,82 @@
-h1 {
-  color: #440791;
+html, * {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, p, label, button {
+  color: #FFFFFF;
+}
+
+h1, h2 {
+  font-family: "Antic Didone", "serif";
+}
+
+p, label, input {
+  font-family: "Antic", "serif";
+  font-size: 18px;
+}
+
+.italic {
+  font-style: italic;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: #8031E4;
+}
+
+.title {
+  background: #641AC2;
+  margin: 2rem 0 2rem 0;
+  padding: 1rem;
+  text-align: center;
+}
+
+#login {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-self: center;
+}
+#login input {
+  margin: 0.5rem 0 0.5rem 0;
+  transition: 0.5s;
+}
+#login input:focus {
+  border: 3px solid #641AC2;
+  outline: none;
+}
+#login .login-button {
+  width: fit-content;
+  color: #FFFFFF;
+  background: #641AC2;
+  border: none;
+  padding: 1rem 2rem 1rem 2rem;
+  align-self: center;
+  border-radius: 30px;
+  transition: 1s;
+  cursor: pointer;
+  margin: 1rem 0 1rem 0;
+}
+#login .login-button:hover {
+  background: #FFFFFF;
+  color: #8031E4;
+}
+#login .login-button:active {
+  background: #FFFFFF;
+  color: #8031E4;
+  border: 3px dotted #641AC2;
+}
+#login .login-button:focus {
+  border: 3px solid #FFFFFF;
+  outline: none;
+}
+
+.italic {
+  cursor: pointer;
+  transition: 1s;
 }

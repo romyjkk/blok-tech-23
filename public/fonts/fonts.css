@@ -1,0 +1,27 @@
+/* antic-didone-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Antic Didone';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/antic-didone-v16-latin-regular.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/antic-didone-v16-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/antic-didone-v16-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/antic-didone-v16-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/antic-didone-v16-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/antic-didone-v16-latin-regular.svg#AnticDidone') format('svg'); /* Legacy iOS */
+  }
+
+  /* antic-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Antic';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/antic-v19-latin-regular.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/antic-v19-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/antic-v19-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/antic-v19-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/antic-v19-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/antic-v19-latin-regular.svg#Antic') format('svg'); /* Legacy iOS */
+  }

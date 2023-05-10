@@ -3,15 +3,24 @@ html, * {
   padding: 0;
 }
 
-h1, h2, p, label, button {
+h1,
+h2,
+p,
+label,
+button,
+a {
   color: #FFFFFF;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-family: "Antic Didone", "serif";
 }
 
-p, label, input {
+p,
+label,
+input,
+a {
   font-family: "Antic", "serif";
   font-size: 18px;
 }
@@ -36,21 +45,25 @@ body {
   text-align: center;
 }
 
-#login {
+#login,
+#signup {
   display: flex;
   flex-direction: column;
   width: 80%;
   align-self: center;
+  margin-top: 3rem;
 }
-#login input {
+#login input,
+#signup input {
   margin: 0.5rem 0 0.5rem 0;
-  transition: 0.5s;
 }
-#login input:focus {
+#login input:focus,
+#signup input:focus {
   border: 3px solid #641AC2;
   outline: none;
 }
-#login .login-button {
+#login .login-button,
+#signup .login-button {
   width: fit-content;
   color: #FFFFFF;
   background: #641AC2;
@@ -58,20 +71,22 @@ body {
   padding: 1rem 2rem 1rem 2rem;
   align-self: center;
   border-radius: 30px;
-  transition: 1s;
   cursor: pointer;
-  margin: 1rem 0 1rem 0;
+  margin: 5rem 0 5rem 0;
 }
-#login .login-button:hover {
+#login .login-button:hover,
+#signup .login-button:hover {
   background: #FFFFFF;
   color: #8031E4;
 }
-#login .login-button:active {
+#login .login-button:active,
+#signup .login-button:active {
   background: #FFFFFF;
   color: #8031E4;
   border: 3px dotted #641AC2;
 }
-#login .login-button:focus {
+#login .login-button:focus,
+#signup .login-button:focus {
   border: 3px solid #FFFFFF;
   outline: none;
 }
@@ -79,4 +94,8 @@ body {
 .italic {
   cursor: pointer;
   transition: 1s;
+}
+
+i {
+  color: #FFFFFF;
 }

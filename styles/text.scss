@@ -1,22 +1,31 @@
-@import 'helpers/variables';
-@import 'helpers/mixins';
+@import "helpers/variables";
+@import "helpers/mixins";
 
-h1, h2, p, label, button {
-    color: $primaryTextColor;
+h1,
+h2,
+p,
+label,
+button,
+a {
+  color: $primaryTextColor;
 }
 
-h1, h2 {
-    font-family: $primaryFont;
+h1,
+h2 {
+  font-family: $primaryFont;
 }
 
-p, label, input {
-    font-family: $secondaryFont;
-    font-size: 18px;
+p,
+label,
+input,
+a {
+  font-family: $secondaryFont;
+  font-size: 18px;
 }
 
 .italic {
-    font-style: italic;
-    font-size: 16px;
-    text-align: center;
-    text-decoration: underline;
+  font-style: italic;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: underline;
 }

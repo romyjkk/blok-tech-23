@@ -1,8 +1,8 @@
-@import 'helpers/variables';
-@import 'helpers/mixins';
+@import "helpers/variables";
+@import "helpers/mixins";
 
 body {
-    display: flex;
-    flex-direction: column;
-    background: $primaryColor;
+  display: flex;
+  flex-direction: column;
+  background: $primaryColor;
 }

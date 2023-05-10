@@ -2,18 +2,14 @@
 
 <h1 class="title">MovieMatch</h1>
 
-
-
-<form id="login">
+<form id="login" method="post" action="/profile">
     <label for id="username">Username</label>
-    <input type="text" id="username">
+    <input type="text" id="username" required>
 
     <label for id="password">Password</label>
-    <input type="password" id="password">
+    <input type="password" id="password" required/>
 
     <input type="button" id="submit" class="login-button" value="Log in!">
 </form>
 
-<p class="italic">Sign up</p>
-
-{{> footer}}
+<a href="/signup" class="italic">Sign up</a>

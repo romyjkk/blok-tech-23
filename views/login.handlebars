@@ -2,14 +2,14 @@
 
 <h1 class="title">MovieMatch</h1>
 
-<form id="login" method="post" action="/profile">
+<form id="login" method="POST" action="/profile">
     <label for id="username">Username</label>
-    <input type="text" id="username" required>
+    <input type="text" id="username" name="username" required>
 
     <label for id="password">Password</label>
-    <input type="password" id="password" required/>
+    <input type="password" id="password" minlength="8" maxlength="50" name="password" required/>
 
-    <input type="button" id="submit" class="login-button" value="Log in!">
+    <input type="submit" id="submit" class="login-button" value="Log in!">
 </form>
 
 <a href="/signup" class="italic">Sign up</a>

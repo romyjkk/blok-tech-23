@@ -1,11 +1,14 @@
+// setting up the variables
+
 require("dotenv").config();
 const dbKey = process.env.MONGO_URI;
-// const bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
 const { engine } = require("express-handlebars");
 const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3000;
+const UserModel = require("./models/testModel.js");
 // 1337
 
 app.use("/public", express.static("public"));
@@ -13,10 +16,10 @@ app.engine("handlebars", engine({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 app.set("views", "views");
 // app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // connect to the database
-async function run() {
+async function conncectDatabase() {
   try {
     await mongoose.connect(dbKey);
     console.log(
@@ -26,7 +29,7 @@ async function run() {
     console.error(error);
   }
 }
-run();
+conncectDatabase();
 
 // routes
 
@@ -47,6 +50,14 @@ app.post("/profile", function (req, res) {
 app.get("/matcher", (req, res) => {
   res.render("matcher", { title: "MovieMatcher" });
   // will be a static page
+});
+
+app.post("/api/user", (req, res) => {
+  const SaveUser = new UserModel(req.body);
+  SaveUser.save((error, savedUser) => {
+    if (error) throw error;
+    res.json(savedUser);
+  });
 });
 
 app.get("*", (req, res) => {

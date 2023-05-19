@@ -2,13 +2,14 @@
 
 require("dotenv").config();
 const dbKey = process.env.MONGO_URI;
-const bodyParser = require("body-parser");
+const { MongoClient, ServerApiVersion } = require("mongodb");
+// const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
 const { engine } = require("express-handlebars");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3000;
-const User = require("./models/User.js");
+// const User = require("./models/User.js");
 // 1337
 
 app.use("/public", express.static("public"));
@@ -16,38 +17,48 @@ app.engine("handlebars", engine({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 app.set("views", "views");
 // app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 // connect to the database
 
-// async function conncectDatabase() {
-//   try {
-//     await mongoose.connect(dbKey);
-//     console.log("Connected!");
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-// conncectDatabase();
-
-mongoose.connect(
-  dbKey,
-  () => {
-    console.log("Connected!");
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(dbKey, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
   },
-  (e) => console.error(e)
-);
+});
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
 
-// saveTheUser();
-// async function saveTheUser() {
-//   const newUser = await User.create({
-//     name: "Romy",
-//     age: 20,
-//     email: "romy.jongkees@hva.nl",
-//     password: "hoi123",
-//   });
-//   console.log(newUser);
-// }
+    // call the database and the collection
+    const db = client.db("sample_guides");
+    const coll = db.collection("comets");
+
+    const doc = {
+      orbitalPeriod: {
+        $gt: 5,
+        $lt: 85,
+      },
+    };
+
+    const result = await coll.deleteMany(doc);
+
+    // iterate over all the results
+
+    console.log("Number of documents deleted: " + result.deletedCount);
+    // Send a ping to confirm a successful connection
+    // await client.db("admin").command({ ping: 1 });
+    // console.log("Connected!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
 
 // routes
 
@@ -69,14 +80,6 @@ app.get("/matcher", (req, res) => {
   res.render("matcher", { title: "MovieMatcher" });
   // will be a static page
 });
-
-// app.post("/api/user", (req, res) => {
-//   const SaveUser = new UserModel(req.body);
-//   SaveUser.save((error, savedUser) => {
-//     if (error) throw error;
-//     res.json(savedUser);
-//   });
-// });
 
 app.get("*", (req, res) => {
   res.render("404", { title: "404 page not found" });

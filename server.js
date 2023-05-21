@@ -1,3 +1,5 @@
+// file to handle all server related things
+
 // setting up the variables
 
 // server (express)
@@ -85,18 +87,14 @@ app.post("/signup", async (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  // const { username, password } = req.body;
-  // User.findOne({ username, password }, (error, user) => {
-  //   if (error) {
-  //     console.error("Error logging in:", error);
-  //     return res.status(500).json({ error: "Failed to log in" });
-  //   }
-  //   if (!user) {
-  //     return res.status(401).json({ error: "Invalid username or password" });
-  //   }
-  //   return res.status(200).json({ message: "Logged in successfully" });
-  // });
-  // ik weet nog niet zo goed wat ik hiermee ga doen
+  const oldUser = {
+    username: req.body.username,
+    password: req.body.password,
+  };
+
+  User.findOne(oldUser);
+
+  res.render("questions");
 });
 
 app.post("/questions", (req, res) => {});

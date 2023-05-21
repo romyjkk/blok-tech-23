@@ -1,14 +1,8 @@
 const mongoose = require("mongoose");
-// const bycrypt = require("bcrypt");
 
 // create signup schema
 
 const userSchema = new mongoose.Schema({
-  firstname: {
-    type: String,
-    required: [true, "Please provide your first name!"],
-    trim: true,
-  },
   username: {
     type: String,
     required: [true, "Please provide a username!"],
@@ -20,9 +14,9 @@ const userSchema = new mongoose.Schema({
       "Please make sure your username doesn't have more than 20 characters!",
     ],
   },
-  dateofbirth: {
-    type: Date,
-    required: [true, "Please provide a date of birth!"],
+  age: {
+    type: Number,
+    required: [true, "Please provide your age!"],
   },
   email: {
     type: String,
@@ -36,19 +30,7 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-// userSchema.method({
-//   async authenticate(hashedPassword) {
-//     return bycrypt.compare(hashedPassword, this.password);
-//   },
-// });
-
 // create model and export it
 
 const User = new mongoose.model("moviematcher", userSchema);
 module.exports = User;
-
-// module.exports = mongoose.model("User", userSchema);
-
-// const UserModel = mongoose.model("user", UserSchema);
-// module.exports = UserModel;
-// module.exports = mongoose.model("User", userModel);

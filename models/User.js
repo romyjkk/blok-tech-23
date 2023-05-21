@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const bycrypt = require("bcrypt");
+// const bycrypt = require("bcrypt");
 
-// create schema
+// create signup schema
 
 const userSchema = new mongoose.Schema({
   firstname: {
@@ -36,13 +36,18 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-userSchema.method({
-  async authenticate(hashedPassword) {
-    return bycrypt.compare(hashedPassword, this.password);
-  },
-});
+// userSchema.method({
+//   async authenticate(hashedPassword) {
+//     return bycrypt.compare(hashedPassword, this.password);
+//   },
+// });
 
-module.exports = mongoose.model("User", userSchema);
+// create model and export it
+
+const User = new mongoose.model("moviematcher", userSchema);
+module.exports = User;
+
+// module.exports = mongoose.model("User", userSchema);
 
 // const UserModel = mongoose.model("user", UserSchema);
 // module.exports = UserModel;

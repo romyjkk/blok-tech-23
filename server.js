@@ -18,11 +18,11 @@ const { MongoClient, ServerApiVersion } = require("mongodb");
 const mongoose = require("mongoose");
 
 // body parser
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 
 // models
 
-const User = require("./models/User.js");
+const user = require("./models/User.js");
 
 // setting up handlebars and the static folder
 
@@ -30,24 +30,44 @@ app.use("/public", express.static("public"));
 app.engine("handlebars", engine({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 app.set("views", "views");
+app.use(express.urlencoded({ extended: false }));
 
 // setting up body parser
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 // connect to the database
 
-connectToDB().catch((error) => console.log(error));
-
-async function connectToDB() {
-  await mongoose.connect(dbKey, {
+mongoose
+  .connect(dbKey, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Connected to the database");
+  })
+  .catch(() => {
+    console.log("Failed to connect:");
   });
-}
+
+// connectDB().catch((error) => console.log(error));
+
+// async function connectToDB() {
+//   await mongoose.connect(dbKey, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   });
+// }
 
 // routes
+
+app.get("/signup", (req, res) => {
+  res.render("signup", { title: "Signup" });
+
+  // let loginData = new User(req.body);
+  // loginData.save();
+});
 
 app.get("/", (req, res) => {
   res.render("login", { title: "Login" });
@@ -59,6 +79,22 @@ app.get("/", (req, res) => {
   // .catch(err => {
   //   console.log(err);
   // })
+});
+
+// we need to work with async/await in order to work with mongodb
+
+app.post("/signup", async (req, res) => {
+  const newUser = {
+    firstname: req.body.firstname,
+    username: req.body.username,
+    email: req.body.email,
+    dateofbirth: req.body.dateofbirth,
+    password: req.body.password,
+  };
+
+  await user.insertMany([newUser]);
+
+  res.render("/questions");
 });
 
 app.post("/", (req, res) => {
@@ -79,41 +115,16 @@ app.post("/", (req, res) => {
   // ik weet nog niet zo goed wat ik hiermee ga doen
 });
 
-app.get("/signup", (req, res) => {
-  res.render("signup", { title: "Signup" });
-
-  // let loginData = new User(req.body);
-  // loginData.save();
-});
-
-app.post("/signup", (req, res) => {
-  const { firstname, username, dateofbirth, email, password } = req.body;
-
-  const newUser = new User({
-    firstname,
-    username,
-    dateofbirth,
-    email,
-    password,
-  });
-
-  newUser.save();
-
-  // newUser.save((err) => {
-  //   if (err) {
-  //     console.error("Error signing up:", err);
-  //     return res.status(500).json({ error: "Failed to sign up" });
-  //   }
-  //   return res.status(200).json({ message: "Sign up successful" });
-  // });
-});
-
 // doesn't work
 
 // app.post("/profile", function (req, res) {
 //   res.send(req.body);
 //   // send form data here (later want to showcase it in a nice way, example: "Welcome, Romy!", maybe "Welcome back" if the account already exists)
 // });
+
+app.get("/questions", (req, res) => {
+  res.render("questions", { title: "MovieMatcher" });
+});
 
 app.get("/matcher", (req, res) => {
   res.render("matcher", { title: "MovieMatcher" });

@@ -35,13 +35,13 @@ app.set("views", "views");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(
-  session({
-    secret: "youdidnthearthisfrommebutyouareanerd",
-    saveUninitialized: true,
-    resave: false,
-  })
-);
+// app.use(
+//   session({
+//     secret: "youdidnthearthisfrommebutyouareanerd",
+//     saveUninitialized: true,
+//     resave: false,
+//   })
+// );
 
 // connect to the database
 
@@ -53,22 +53,19 @@ mongoose
   .then(() => {
     console.log("Connected to the database");
   })
-  .catch(() => {
-    console.log("Failed to connect");
+  .catch((err) => {
+    console.log("Failed to connect", err);
+    process.exit();
   });
 
 // routes
 
 app.get("/signup", (req, res) => {
   res.render("signup", { title: "Signup" });
-
-  // let loginData = new User(req.body);
-  // loginData.save();
 });
 
 app.get("/", (req, res) => {
   res.render("login", { title: "Login" });
-  // the root page is the login page
 });
 
 // we need to work with async/await in order to work with mongodb
@@ -87,23 +84,19 @@ app.post("/signup", async (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  const oldUser = {
+  const existingUser = {
     username: req.body.username,
     password: req.body.password,
   };
-
-  User.findOne(oldUser);
-
+  User.findOne(existingUser).then((user) => {
+    if (!user) {
+      res.json({ succes: false, error: "This user doesn't exist!" });
+    }
+  });
   res.render("questions");
 });
 
 app.post("/questions", (req, res) => {});
-// doesn't work
-
-// app.post("/profile", function (req, res) {
-//   res.send(req.body);
-//   // send form data here (later want to showcase it in a nice way, example: "Welcome, Romy!", maybe "Welcome back" if the account already exists)
-// });
 
 app.get("/questions", (req, res) => {
   res.render("questions", { title: "MovieMatcher" });

@@ -1,14 +1,23 @@
 // colors
 
-$primaryColor: #8031E4;
-$secondaryColor: #641AC2;
-$tertiaryColor: #FFFFFF;
+$primaryColor: #440000;
+$secondaryColor: #350000;
+$tertiaryColor: #ffffff;
+$quaternaryColor: #000000;
 
 // text
 
-$primaryTextColor: #FFFFFF;
+$primaryTextColor: #ffffff;
 
 // fonts
 
-$primaryFont: 'Antic Didone', 'serif';
-$secondaryFont: 'Antic', 'serif';
+$primaryFont: "Antic Didone", "serif";
+$secondaryFont: "Antic", "serif";
+
+// breakpoints
+
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;

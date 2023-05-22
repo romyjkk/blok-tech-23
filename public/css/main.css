@@ -9,7 +9,7 @@ p,
 label,
 button,
 a {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 h1,
@@ -27,21 +27,23 @@ a {
 
 .italic {
   font-style: italic;
-  font-size: 16px;
-  text-align: center;
   text-decoration: underline;
+  text-align: center;
+  font-size: 16px;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  background: #8031E4;
+  background: #440000;
 }
 
 .title {
-  background: #641AC2;
-  margin: 2rem 0 2rem 0;
-  padding: 1rem;
+  background: #350000;
+  margin: 4rem 0 4rem 0;
+  padding: 2rem;
+  box-shadow: 0px 4px 10px #000000;
+  border: none;
   text-align: center;
 }
 
@@ -55,40 +57,54 @@ body {
 }
 #login input,
 #signup input {
-  margin: 0.5rem 0 0.5rem 0;
+  box-shadow: 0px 2px 5px #000000;
+  border: none;
+  margin: 0.5rem 0 1.5rem 0;
 }
 #login input:focus,
 #signup input:focus {
-  border: 3px solid #641AC2;
+  border: 3px solid #350000;
   outline: none;
 }
 #login .login-button,
 #signup .login-button {
   width: fit-content;
-  color: #FFFFFF;
-  background: #641AC2;
+  color: #ffffff;
+  background: #350000;
   border: none;
   padding: 1rem 2rem 1rem 2rem;
   align-self: center;
   border-radius: 30px;
   cursor: pointer;
-  margin: 5rem 0 5rem 0;
+  margin: 3rem 0 3rem 0;
 }
 #login .login-button:hover,
 #signup .login-button:hover {
-  background: #FFFFFF;
-  color: #8031E4;
+  background: #ffffff;
+  color: #440000;
 }
 #login .login-button:active,
 #signup .login-button:active {
-  background: #FFFFFF;
-  color: #8031E4;
-  border: 3px dotted #641AC2;
+  background: #ffffff;
+  color: #440000;
+  border: 3px dotted #350000;
 }
 #login .login-button:focus,
 #signup .login-button:focus {
-  border: 3px solid #FFFFFF;
+  border: 3px solid #ffffff;
   outline: none;
+}
+@media (min-width: 768px) {
+  #login,
+  #signup {
+    width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  #login,
+  #signup {
+    width: 40%;
+  }
 }
 
 .italic {
@@ -97,5 +113,5 @@ body {
 }
 
 i {
-  color: #FFFFFF;
+  color: #ffffff;
 }

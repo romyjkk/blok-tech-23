@@ -24,8 +24,6 @@ a {
 }
 
 .italic {
-  font-style: italic;
+  @include textDecoration(italic, underline, center);
   font-size: 16px;
-  text-align: center;
-  text-decoration: underline;
 }

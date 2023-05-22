@@ -1,0 +1,41 @@
+@import "variables";
+
+@mixin button($textColor, $buttonBackground, $buttonPadding, $buttonMargin) {
+  width: fit-content;
+  color: $textColor;
+  background: $buttonBackground;
+  border: none;
+  padding: $buttonPadding;
+  align-self: center;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: $buttonMargin;
+}
+
+@mixin boxshadow($boxShadow) {
+  box-shadow: $boxShadow $quaternaryColor;
+  border: none;
+}
+
+@mixin text(
+  $fontFamily: $primaryFont,
+  $fontSize: 16,
+  $fontColor: $primaryTextColor
+) {
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  color: $fontColor;
+}
+
+@mixin textDecoration($fontStyle, $textDecoration, $textAlign) {
+  font-style: $fontStyle;
+  text-decoration: $textDecoration;
+  text-align: $textAlign;
+}
+
+@mixin flexbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+}

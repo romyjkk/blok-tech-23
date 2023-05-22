@@ -3,8 +3,9 @@
 
 .title {
   background: $secondaryColor;
-  margin: 2rem 0 2rem 0;
-  padding: 1rem;
+  margin: 4rem 0 4rem 0;
+  padding: 2rem;
+  @include boxshadow(0px 4px 10px);
   text-align: center;
 }
 
@@ -17,8 +18,8 @@
   margin-top: 3rem;
 
   input {
-    margin: 0.5rem 0 0.5rem 0;
-    // transition: 0.5s;
+    @include boxshadow(0px 2px 5px);
+    margin: 0.5rem 0 1.5rem 0;
 
     &:focus {
       border: 3px solid $secondaryColor;
@@ -27,17 +28,21 @@
   }
 
   .login-button {
-    width: fit-content;
-    color: $primaryTextColor;
-    background: $secondaryColor;
-    border: none;
-    padding: 1rem 2rem 1rem 2rem;
-    align-self: center;
-    border-radius: 30px;
-    // transition: 1s;
-    cursor: pointer;
-    margin: 5rem 0 5rem 0;
-
+    @include button(
+      $primaryTextColor,
+      $secondaryColor,
+      1rem 2rem 1rem 2rem,
+      3rem 0 3rem 0
+    );
+    // width: fit-content;
+    // color: $primaryTextColor;
+    // background: $secondaryColor;
+    // border: none;
+    // padding: 1rem 2rem 1rem 2rem;
+    // align-self: center;
+    // border-radius: 30px;
+    // cursor: pointer;
+    // margin: 3rem 0 3rem 0;
     &:hover {
       background: $tertiaryColor;
       color: $primaryColor;
@@ -53,6 +58,14 @@
       border: 3px solid $primaryTextColor;
       outline: none;
     }
+  }
+
+  @media (min-width: $md) {
+    width: 50%;
+  }
+
+  @media (min-width: $lg) {
+    width: 40%;
   }
 }
 

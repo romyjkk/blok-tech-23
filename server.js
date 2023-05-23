@@ -7,23 +7,20 @@
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
-const session = require("express-session");
-const passwordHash = require("bcrypt");
 
 // engine
 
 const { engine } = require("express-handlebars");
-
-// database
-
-require("dotenv").config();
-const dbKey = process.env.MONGO_URI;
-const { MongoClient, ServerApiVersion } = require("mongodb");
-const mongoose = require("mongoose");
+const session = require("express-session");
 
 // other js files
 
 const User = require("./models/User.js");
+const database = require("./database.js");
+
+// rest
+
+const passwordHash = require("bcrypt");
 
 // express & express handlebars & express session
 
@@ -35,28 +32,15 @@ app.set("views", "views");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// app.use(
-//   session({
-//     secret: "youdidnthearthisfrommebutyouareanerd",
-//     saveUninitialized: true,
-//     resave: false,
-//   })
-// );
+// session
 
-// connect to the database
-
-mongoose
-  .connect(dbKey, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+app.use(
+  session({
+    secret: "youdidnthearthisfrommebutyouareanerd",
+    saveUninitialized: true,
+    resave: false,
   })
-  .then(() => {
-    console.log("Connected to the database");
-  })
-  .catch((err) => {
-    console.log("Failed to connect", err);
-    process.exit();
-  });
+);
 
 // routes
 
@@ -64,7 +48,7 @@ app.get("/signup", (req, res) => {
   res.render("signup", { title: "Signup" });
 });
 
-app.get("/", (req, res) => {
+app.get("/login", (req, res) => {
   res.render("login", { title: "Login" });
 });
 
@@ -80,10 +64,12 @@ app.post("/signup", async (req, res) => {
 
   await User.create(newUser);
 
-  res.render("questions");
+  req.session.username = newUser.username;
+
+  res.redirect("questions");
 });
 
-app.post("/", (req, res) => {
+app.post("/login", (req, res) => {
   const existingUser = {
     username: req.body.username,
     password: req.body.password,
@@ -91,16 +77,22 @@ app.post("/", (req, res) => {
   User.findOne(existingUser).then((user) => {
     if (!user) {
       res.json({ succes: false, error: "This user doesn't exist!" });
+    } else if (user) {
+      req.session.username = existingUser.username;
+      res.redirect("questions");
     }
   });
-  res.render("questions");
 });
-
-app.post("/questions", (req, res) => {});
 
 app.get("/questions", (req, res) => {
-  res.render("questions", { title: "MovieMatcher" });
+  const username = req.session.username;
+  res.render("questions", { title: "MovieMatcher", username });
 });
+
+// app.post("/questions", (req, res) => {
+//   const username = req.session.username;
+//   res.render("questions", { title: "MovieMatcher", username });
+// });
 
 app.get("/matcher", (req, res) => {
   res.render("matcher", { title: "MovieMatcher" });

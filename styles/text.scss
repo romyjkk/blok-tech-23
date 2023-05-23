@@ -26,4 +26,8 @@ a {
 .italic {
   @include textDecoration(italic, underline, center);
   font-size: 16px;
+
+  // &:hover {
+
+  // }
 }

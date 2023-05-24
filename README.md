@@ -1,5 +1,7 @@
 # 🎬🍿 MovieMatcher
 
+![Logo](https://github.com/romyjkk/blok-tech-23/assets/98404201/efd68e3d-9980-4e7f-8042-b160c9aab00c)
+
 Welcome to the MovieMatcher repository.
 MovieMatcher is a matching application where users can match with a movie, based on their preferences.
 You can make it as specific as you want, it's possible to filter on a few different things like movie length and genre.

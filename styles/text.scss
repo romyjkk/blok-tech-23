@@ -22,7 +22,8 @@ h2 {
 p,
 label,
 input,
-a {
+a,
+button {
   font-family: $secondaryFont;
   font-size: 18px;
 }
@@ -30,8 +31,4 @@ a {
 .italic {
   @include textDecoration(italic, underline, center);
   font-size: 16px;
-
-  // &:hover {
-
-  // }
 }

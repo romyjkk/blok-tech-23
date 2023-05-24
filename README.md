@@ -23,7 +23,10 @@ If you want to make changes or add things to this application, there's a few ste
 
 1. Clone this repository by typing the following command into your terminal: `git clone https://github.com/romyjkk/blok-tech-23`
 2. Install the NPM packages by running `npm install`.
-3. Start the project by typing `npm run dev`. In `package.json` you can find the different run scripts and dependencies.
+3. Make your own MongoDB database and place the following in an `.env` file: `MONGO_URI="<your own connection string>"`.
+4. Start the project by typing `npm run dev`. In `package.json` you can find the different run scripts and dependencies.
+
+Note: the design is mobile-first, and will look best on a phone.
 
 Have fun!
 

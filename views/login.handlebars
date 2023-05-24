@@ -2,10 +2,10 @@
 
 <form id="login" method="POST" action="/login">
     <label for id="username">Username</label>
-    <input type="text" id="username" name="username" required>
+    <input type="text" id="username" minlength="3" maxlength="20" name="username" required>
 
     <label for id="password">Password</label>
-    <input type="password" id="password" name="password" required/>
+    <input type="password" id="password" minlength="8" maxlength="50" name="password" required/>
 
     <input type="submit" id="submit" class="login-button" value="Log in!">
 </form>

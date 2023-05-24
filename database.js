@@ -2,7 +2,6 @@
 
 require("dotenv").config();
 const dbKey = process.env.MONGO_URI;
-// const { MongoClient, ServerApiVersion } = require("mongodb");
 const mongoose = require("mongoose");
 
 // connect to the database
@@ -17,5 +16,4 @@ mongoose
   })
   .catch((err) => {
     console.log("Failed to connect", err);
-    // process.exit();
   });

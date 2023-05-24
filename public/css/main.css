@@ -1,3 +1,4 @@
+@import url("../../node_modules/font-awesome/css/font-awesome.min.css");
 html,
 * {
   margin: 0;
@@ -8,6 +9,10 @@ img {
   height: auto;
   max-width: 100%;
   width: 100%;
+}
+
+ul {
+  list-style-type: none;
 }
 
 h1,
@@ -31,7 +36,8 @@ h2 {
 p,
 label,
 input,
-a {
+a,
+button {
   font-family: "Antic", "serif";
   font-size: 18px;
 }
@@ -66,7 +72,8 @@ header,
 }
 
 #login,
-#signup {
+#signup,
+#edit {
   display: flex;
   flex-direction: column;
   width: 80%;
@@ -74,18 +81,21 @@ header,
   margin-top: 3rem;
 }
 #login input,
-#signup input {
+#signup input,
+#edit input {
   box-shadow: 0px 2px 5px #000000;
   border: none;
   margin: 0.5rem 0 1.5rem 0;
 }
 #login input:focus,
-#signup input:focus {
+#signup input:focus,
+#edit input:focus {
   border: 3px solid #350000;
   outline: none;
 }
 #login .login-button,
-#signup .login-button {
+#signup .login-button,
+#edit .login-button {
   width: fit-content;
   color: #ffffff;
   background: #350000;
@@ -98,30 +108,35 @@ header,
   text-decoration: none;
 }
 #login .login-button:hover,
-#signup .login-button:hover {
+#signup .login-button:hover,
+#edit .login-button:hover {
   background: #ffffff;
   color: #440000;
 }
 #login .login-button:active,
-#signup .login-button:active {
+#signup .login-button:active,
+#edit .login-button:active {
   background: #ffffff;
   color: #440000;
   border: 3px dotted #350000;
 }
 #login .login-button:focus,
-#signup .login-button:focus {
+#signup .login-button:focus,
+#edit .login-button:focus {
   border: 3px solid #ffffff;
   outline: none;
 }
 @media (min-width: 768px) {
   #login,
-  #signup {
+  #signup,
+  #edit {
     width: 50%;
   }
 }
 @media (min-width: 992px) {
   #login,
-  #signup {
+  #signup,
+  #edit {
     width: 40%;
   }
 }
@@ -138,7 +153,7 @@ p {
   align-self: center;
 }
 
-section {
+.questions {
   width: 80%;
   align-self: center;
   box-shadow: 0px 4px 10px #000000;
@@ -149,11 +164,11 @@ section {
   align-items: center;
   margin-bottom: 2rem;
 }
-section h2 {
+.questions h2 {
   padding: 2rem 1rem 2rem 1rem;
   text-align: center;
 }
-section form {
+.questions form {
   width: 80%;
   background: #ffffff;
   display: flex;
@@ -161,26 +176,26 @@ section form {
   height: 10em;
   overflow-y: scroll;
 }
-section form fieldset {
+.questions form fieldset {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   border-bottom: 1px solid #000000;
 }
-section form fieldset label,
-section form fieldset input {
+.questions form fieldset label,
+.questions form fieldset input {
   margin: 0.3em;
 }
-section form fieldset label {
+.questions form fieldset label {
   color: #000000;
 }
-section form fieldset input {
+.questions form fieldset input {
   cursor: pointer;
 }
-section form fieldset input:active, section form fieldset input:checked {
+.questions form fieldset input:active, .questions form fieldset input:checked {
   accent-color: #350000;
 }
-section .next-button {
+.questions .next-button {
   width: fit-content;
   color: #000000;
   background: #ffffff;
@@ -192,15 +207,15 @@ section .next-button {
   margin: 2rem 0 2rem 0;
   text-decoration: none;
 }
-section .next-button:hover {
+.questions .next-button:hover {
   background: #000000;
   color: #ffffff;
 }
-section .next-button:active {
+.questions .next-button:active {
   color: #ffffff;
   border: 3px dotted #000000;
 }
-section .next-button:focus {
+.questions .next-button:focus {
   border: 3px solid #000000;
   outline: none;
 }
@@ -235,6 +250,209 @@ footer .progress-bubbles .bubble:first-of-type {
   background: #000000;
 }
 
-i {
+.matcher {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.matcher .matcher-slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+}
+.matcher .matcher-slider .off-to-the-side {
+  margin-top: 2rem;
+  background: #350000;
+  box-shadow: 0px 4px 10px #000000;
+  border: none;
+  width: 1rem;
+  height: 21rem;
+}
+.matcher .matcher-slider figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 60%;
+  height: 0%;
+  background: #350000;
+  box-shadow: 0px 4px 10px #000000;
+  border: none;
+}
+.matcher .matcher-slider figure .matcher-poster {
+  width: 90%;
+  align-self: center;
+  padding: 1rem;
+}
+.matcher .matcher-slider figure .matcher-icons {
+  position: absolute;
+  bottom: -1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.matcher .matcher-slider figure .matcher-icons figure {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.matcher .matcher-slider figure .matcher-icons figure img {
+  transition: 0.5s;
+}
+.matcher .matcher-slider figure .matcher-icons figure:hover {
+  background: #989898;
+}
+.matcher .matcher-slider figure .matcher-icons figure:active:first-of-type img {
+  transform: scale(1.1);
+}
+.matcher .matcher-slider figure .matcher-icons figure:active:nth-of-type(3) img {
+  transform: scale(1.1);
+  opacity: 0;
+}
+.matcher .icon {
+  width: 60%;
+  height: auto;
+}
+.matcher .matcher-buttons {
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+  border-radius: 45px;
+  width: 30%;
+  cursor: pointer;
+}
+.matcher .matcher-buttons .icon {
+  width: 15%;
+  padding: 1rem;
+  transition: 0.5s;
+}
+.matcher .matcher-buttons .icon:active {
+  transform: translateX(-0.5em);
+  opacity: 0;
+}
+.matcher .matcher-buttons .icon:active:first-of-type {
+  transform: translateX(-0.5em);
+}
+.matcher .matcher-buttons .icon:active:nth-of-type(2) {
+  transform: translateX(0.5em);
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+}
+.profile article:first-of-type {
+  background: #350000;
+  box-shadow: 0px 5px 10px #000000;
+  border: none;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profile article:first-of-type figure {
+  width: 5rem;
+  height: 5rem;
+  background: #ffffff;
+  border-radius: 50%;
+  margin: 2rem 0 2rem;
+}
+.profile article:nth-of-type(2) {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.profile article:nth-of-type(2) h2 {
+  text-align: center;
+}
+.profile button {
+  width: fit-content;
   color: #ffffff;
+  background: #350000;
+  border: none;
+  padding: 1rem 2rem 1rem 2rem;
+  align-self: center;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 3rem 0 3rem 0;
+  text-decoration: none;
+  box-shadow: 0px 5px 10px #000000;
+  border: none;
+}
+.profile button:hover {
+  background: #ffffff;
+  color: #440000;
+}
+.profile button:active {
+  background: #ffffff;
+  color: #440000;
+  border: 3px dotted #350000;
+}
+.profile button:focus {
+  border: 3px solid #ffffff;
+  outline: none;
+}
+
+.search form {
+  display: flex;
+  justify-content: center;
+}
+.search form input {
+  width: 80%;
+}
+
+h1.list {
+  text-align: center;
+}
+
+footer {
+  background: #350000;
+  width: 100%;
+  height: 8rem;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+}
+footer .nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70%;
+  margin-top: 1.5rem;
+}
+footer .nav a {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+footer .nav a img {
+  width: 60%;
+}
+footer .nav a:first-of-type, footer .nav a:nth-of-type(4) {
+  margin-top: 1.5rem;
+}
+footer .nav a:hover {
+  background: #989898;
+}
+footer .nav a:focus {
+  box-shadow: 0px 0px 15px #000000;
+  border: none;
 }

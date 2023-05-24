@@ -15,8 +15,9 @@ const session = require("express-session");
 
 // other js files
 
-const User = require("./models/User.js");
+// const User = require("./models/User.js");
 const database = require("./database.js");
+const User = require("./models/User.js");
 
 // rest
 
@@ -52,7 +53,7 @@ app.get("/login", (req, res) => {
   res.render("login", { title: "Login" });
 });
 
-// we need to work with async/await in order to work with mongodb
+// make an account
 
 app.post("/signup", async (req, res) => {
   const newUser = {
@@ -68,6 +69,8 @@ app.post("/signup", async (req, res) => {
 
   res.redirect("questions");
 });
+
+// login
 
 app.post("/login", (req, res) => {
   const existingUser = {
@@ -94,14 +97,24 @@ app.get("/questions", (req, res) => {
   res.render("questions", { title: "MovieMatcher", username });
 });
 
-// app.post("/questions", (req, res) => {
-//   const username = req.session.username;
-//   res.render("questions", { title: "MovieMatcher", username });
-// });
-
 app.get("/matcher", (req, res) => {
   res.render("matcher", { title: "MovieMatcher" });
-  // will be a static page
+});
+
+app.get("/search", (req, res) => {
+  res.render("search", { title: "Search" });
+});
+
+app.get("/list", (req, res) => {
+  res.render("list", { title: "List" });
+});
+
+app.get("/profile", (req, res) => {
+  const username = req.session.username;
+  const email = req.session.email;
+  const age = req.session.age;
+  const password = req.session.password;
+  res.render("profile", { title: "Profile", username, email, age, password });
 });
 
 app.get("*", (req, res) => {

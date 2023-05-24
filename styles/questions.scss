@@ -1,0 +1,125 @@
+@import "helpers/variables";
+@import "helpers/mixins";
+
+p {
+  margin-bottom: 3rem;
+  width: 80%;
+  text-align: center;
+  align-self: center;
+}
+
+section {
+  width: 80%;
+  align-self: center;
+  @include boxshadow(0px 4px 10px);
+  background: $secondaryColor;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  h2 {
+    padding: 2rem 1rem 2rem 1rem;
+    text-align: center;
+  }
+
+  form {
+    width: 80%;
+    background: $tertiaryColor;
+    display: flex;
+    flex-direction: column;
+    height: 10em;
+    overflow-y: scroll;
+
+    // ::-webkit-scrollbar-track {
+    //   background: #ffffff;
+    // }
+
+    // ::-webkit-scrollbar-thumb {
+    //   background: #440000;
+    // }
+
+    // ::-webkit-scrollbar-thumb:hover {
+    //   background: #350000;
+    // }
+
+    fieldset {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      border-bottom: 1px solid $quaternaryColor;
+      label,
+      input {
+        margin: 0.3em;
+      }
+
+      label {
+        color: $secondaryTextColor;
+      }
+
+      input {
+        cursor: pointer;
+        &:active,
+        &:checked {
+          accent-color: $secondaryColor;
+        }
+      }
+    }
+  }
+
+  .next-button {
+    @include button(
+      $quaternaryColor,
+      $tertiaryColor,
+      1rem 2rem 1rem 2rem,
+      2rem 0 2rem 0
+    );
+
+    &:hover {
+      background: $quaternaryColor;
+      color: $tertiaryColor;
+    }
+
+    &:active {
+      color: $tertiaryColor;
+      border: 3px dotted $quaternaryColor;
+    }
+
+    &:focus {
+      border: 3px solid $quaternaryColor;
+      outline: none;
+    }
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+
+  height: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-self: center;
+  .progress-bubbles {
+    align-self: center;
+    align-items: center;
+    .bubble {
+      @include boxshadow(0px 2px 5px);
+      height: 1.5rem;
+      width: 1.5rem;
+      background: $tertiaryColor;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+      margin: 0 1rem 0 1rem;
+
+      &:hover {
+        background: $fifthColor;
+      }
+
+      &:first-of-type {
+        background: $quaternaryColor;
+      }
+    }
+  }
+}

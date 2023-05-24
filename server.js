@@ -74,10 +74,15 @@ app.post("/login", (req, res) => {
     username: req.body.username,
     password: req.body.password,
   };
+
+  // hij gaat zoeken naar de gebruiker in de database
   User.findOne(existingUser).then((user) => {
+    // als de gebruiker niet bestaat:
     if (!user) {
-      res.json({ succes: false, error: "This user doesn't exist!" });
+      console.log("This user doesn't exist!");
+      // als de gebruiker wel bestaat:
     } else if (user) {
+      // hij maakt een session aan en redirect je naar de "questions" pagina
       req.session.username = existingUser.username;
       res.redirect("questions");
     }

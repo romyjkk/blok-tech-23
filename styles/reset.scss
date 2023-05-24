@@ -1,7 +1,14 @@
-@import 'helpers/variables';
-@import 'helpers/mixins';
+@import "helpers/variables";
+@import "helpers/mixins";
 
-html, * {
-    margin: 0;
-    padding: 0;
+html,
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  width: 100%;
 }

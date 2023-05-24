@@ -1,6 +1,13 @@
-html, * {
+html,
+* {
   margin: 0;
   padding: 0;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  width: 100%;
 }
 
 h1,
@@ -15,6 +22,10 @@ a {
 h1,
 h2 {
   font-family: "Antic Didone", "serif";
+}
+
+h2 {
+  font-size: 21px;
 }
 
 p,
@@ -36,15 +47,22 @@ body {
   display: flex;
   flex-direction: column;
   background: #440000;
+  position: relative;
+  min-height: 100vh;
+}
+
+header,
+.title {
+  width: 100%;
+  margin: 4rem 0 4rem 0;
+  background: #350000;
+  box-shadow: 0px 4px 10px #000000;
+  border: none;
 }
 
 .title {
-  background: #350000;
-  margin: 4rem 0 4rem 0;
-  padding: 2rem;
-  box-shadow: 0px 4px 10px #000000;
-  border: none;
   text-align: center;
+  padding: 2rem 0 2rem 0;
 }
 
 #login,
@@ -77,6 +95,7 @@ body {
   border-radius: 30px;
   cursor: pointer;
   margin: 3rem 0 3rem 0;
+  text-decoration: none;
 }
 #login .login-button:hover,
 #signup .login-button:hover {
@@ -110,6 +129,110 @@ body {
 .italic {
   cursor: pointer;
   transition: 1s;
+}
+
+p {
+  margin-bottom: 3rem;
+  width: 80%;
+  text-align: center;
+  align-self: center;
+}
+
+section {
+  width: 80%;
+  align-self: center;
+  box-shadow: 0px 4px 10px #000000;
+  border: none;
+  background: #350000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+section h2 {
+  padding: 2rem 1rem 2rem 1rem;
+  text-align: center;
+}
+section form {
+  width: 80%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 10em;
+  overflow-y: scroll;
+}
+section form fieldset {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #000000;
+}
+section form fieldset label,
+section form fieldset input {
+  margin: 0.3em;
+}
+section form fieldset label {
+  color: #000000;
+}
+section form fieldset input {
+  cursor: pointer;
+}
+section form fieldset input:active, section form fieldset input:checked {
+  accent-color: #350000;
+}
+section .next-button {
+  width: fit-content;
+  color: #000000;
+  background: #ffffff;
+  border: none;
+  padding: 1rem 2rem 1rem 2rem;
+  align-self: center;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 2rem 0 2rem 0;
+  text-decoration: none;
+}
+section .next-button:hover {
+  background: #000000;
+  color: #ffffff;
+}
+section .next-button:active {
+  color: #ffffff;
+  border: 3px dotted #000000;
+}
+section .next-button:focus {
+  border: 3px solid #000000;
+  outline: none;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-self: center;
+}
+footer .progress-bubbles {
+  align-self: center;
+  align-items: center;
+}
+footer .progress-bubbles .bubble {
+  box-shadow: 0px 2px 5px #000000;
+  border: none;
+  height: 1.5rem;
+  width: 1.5rem;
+  background: #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  margin: 0 1rem 0 1rem;
+}
+footer .progress-bubbles .bubble:hover {
+  background: #989898;
+}
+footer .progress-bubbles .bubble:first-of-type {
+  background: #000000;
 }
 
 i {

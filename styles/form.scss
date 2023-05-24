@@ -1,14 +1,6 @@
 @import "helpers/variables";
 @import "helpers/mixins";
 
-.title {
-  background: $secondaryColor;
-  margin: 4rem 0 4rem 0;
-  padding: 2rem;
-  @include boxshadow(0px 4px 10px);
-  text-align: center;
-}
-
 #login,
 #signup {
   display: flex;

@@ -1,59 +1,79 @@
-{{> header}}
-
 <h1 class="title">Welcome, {{username}}!</h1>
 
 <p>Please answer these questions so we can recommend you the best movies.</p>
 
 <section>
 
-    <h2>What are your favorite movie genres?</h2>
+  <h2>Question 1. What are your favorite movie genres?</h2>
 
-    <form class="checkbox list">   
+  <form class="checkbox list">
 
-        <label for id="checkbox">Action</label>
-        <input type="checkbox" id="checkbox"/>
+    <fieldset>
+      <label for id="checkbox">Action</label>
+      <input type="checkbox" id="checkbox" />
+    </fieldset>
 
-        <label for id="checkbox">Adventure</label>
-        <input type="checkbox" id="checkbox"/>
+    <fieldset>
+      <label for id="checkbox">Adventure</label>
+      <input type="checkbox" id="checkbox" />
+    </fieldset>
 
-        <label for id="checkbox">Comedy</label>
-        <input type="checkbox" id="checkbox"/>
+    <fieldset>
+      <label for id="checkbox">Comedy</label>
+      <input type="checkbox" id="checkbox" />
+    </fieldset>
 
-        <label for id="checkbox">Crime</label>
-        <input type="checkbox" id="checkbox"/>
+    <fieldset>
+      <label for id="checkbox">Crime</label>
+      <input type="checkbox" id="checkbox" />
+    </fieldset>
 
-        <label for id="checkbox">Fantasy</label>
-        <input type="checkbox" id="checkbox"/>
+    <fieldset>
+      <label for id="checkbox">Fantasy</label>
+      <input type="checkbox" id="checkbox" />
+    </fieldset>
 
-        <label for id="checkbox">Historical</label>
-        <input type="checkbox" id="checkbox"/>
+    <fieldset>
+      <label for id="checkbox">Historical</label>
+      <input type="checkbox" id="checkbox" />
+    </fieldset>
 
-        <label for id="checkbox">Horror</label>
-        <input type="checkbox" id="checkbox"/>
+    <fieldset>
+      <label for id="checkbox">Horror</label>
+      <input type="checkbox" id="checkbox" />
+    </fieldset>
 
-        <label for id="checkbox">Romance</label>
-        <input type="checkbox" id="checkbox"/>
-        
-        <label for id="checkbox">Sci-Fi</label>
-        <input type="checkbox" id="checkbox"/>
+    <fieldset>
+      <label for id="checkbox">Romance</label>
+      <input type="checkbox" id="checkbox" />
+    </fieldset>
 
-        <label for id="checkbox">Thriller</label>
-        <input type="checkbox" id="checkbox"/>
+    <fieldset>
+      <label for id="checkbox">Sci-Fi</label>
+      <input type="checkbox" id="checkbox" />
+    </fieldset>
 
-        <label for id="checkbox">Western</label>
-        <input type="checkbox" id="checkbox"/>
+    <fieldset>
+      <label for id="checkbox">Thriller</label>
+      <input type="checkbox" id="checkbox" />
+    </fieldset>
 
-    </form>
+    <fieldset>
+      <label for id="checkbox">Western</label>
+      <input type="checkbox" id="checkbox" />
+    </fieldset>
 
-    <button>Next</button>
+  </form>
+
+  <a class="next-button" href="/matcher">Next</a>
 
 </section>
 
-<nav class="progress-bubbles">
+<footer>
+  <nav class="progress-bubbles">
     <div class="bubble"></div>
     <div class="bubble"></div>
     <div class="bubble"></div>
     <div class="bubble"></div>
-</nav>
-
-{{> footer}}
+  </nav>
+</footer>

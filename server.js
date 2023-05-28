@@ -45,6 +45,10 @@ app.use(
 
 // routes
 
+app.get("/", (req, res) => {
+  res.redirect("/login");
+});
+
 app.get("/signup", (req, res) => {
   res.render("signup", { title: "Signup" });
 });
@@ -73,23 +77,29 @@ app.post("/signup", async (req, res) => {
 // login
 
 app.post("/login", (req, res) => {
-  const existingUser = {
-    username: req.body.username,
-    password: req.body.password,
-  };
+  try {
+    const existingUser = {
+      username: req.body.username,
+      password: req.body.password,
+    };
 
-  // hij gaat zoeken naar de gebruiker in de database
-  User.findOne(existingUser).then((user) => {
-    // als de gebruiker niet bestaat:
-    if (!user) {
-      console.log("This user doesn't exist!");
-      // als de gebruiker wel bestaat:
-    } else if (user) {
-      // hij maakt een session aan en redirect je naar de "questions" pagina
-      req.session.username = existingUser.username;
-      res.redirect("questions");
-    }
-  });
+    // hij gaat zoeken naar de gebruiker in de database
+    User.findOne(existingUser).then((user) => {
+      // als de gebruiker niet bestaat:
+      if (!user) {
+        req.session.error("This user doesn't exist!");
+        // req.session.error("error message") en dan evt redirect
+        //
+        // als de gebruiker wel bestaat:
+      } else if (user) {
+        // hij maakt een session aan en redirect je naar de "questions" pagina
+        req.session.username = existingUser.username;
+        res.redirect("questions");
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 app.get("/questions", (req, res) => {
@@ -114,7 +124,7 @@ app.get("/profile", (req, res) => {
   const email = req.session.email;
   const age = req.session.age;
   const password = req.session.password;
-  res.render("profile", { title: "Profile", username, email, age, password });
+  res.render("profile", { title: "Profile", email, username, age, password });
 });
 
 app.get("*", (req, res) => {

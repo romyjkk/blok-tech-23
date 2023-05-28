@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 4rem;
+    // margin-bottom: 4rem;
     .off-to-the-side {
       margin-top: 2rem;
       background: $secondaryColor;
@@ -57,7 +57,7 @@
           }
 
           &:hover {
-            background: $fifthColor;
+            background: $quaternaryColor;
           }
 
           &:active:first-of-type {
@@ -91,6 +91,7 @@
     border-radius: 45px;
     width: 30%;
     cursor: pointer;
+    margin: 2rem 0 2rem 0;
     .icon {
       width: 15%;
       padding: 1rem;

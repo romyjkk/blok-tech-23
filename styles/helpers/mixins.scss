@@ -1,10 +1,16 @@
 @import "variables";
 
-@mixin button($textColor, $buttonBackground, $buttonPadding, $buttonMargin) {
+@mixin button(
+  $textColor,
+  $buttonBackground,
+  $buttonPadding,
+  $buttonMargin,
+  $border
+) {
   width: fit-content;
   color: $textColor;
   background: $buttonBackground;
-  border: none;
+  border: $border;
   padding: $buttonPadding;
   align-self: center;
   border-radius: 30px;
@@ -14,7 +20,7 @@
 }
 
 @mixin boxshadow($boxShadow) {
-  box-shadow: $boxShadow $quaternaryColor;
+  box-shadow: $boxShadow $secondaryColor;
   border: none;
 }
 

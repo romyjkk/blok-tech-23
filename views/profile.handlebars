@@ -1,49 +1,61 @@
-<section class="profile">
-  <article>
+{{> header}}
+
+<section class="container">
+
+  <h1 class="title">Your profile</h1>
+
+  <article class="profile-container">
+
     <figure>
-      <img
-        class="icon"
-        alt="Arrow left icon"
-        src="../public/images/profile.png"
-      />
+      <img class="icon" alt="Your profile picture" src="../public/images/profile.png"/>
     </figure>
 
-    <h1>Hi, {{username}}!</h1>
+    <div>
+      <h2>Hi, {{username}}!</h2>
+      <p>You can edit your information here.</p>
+    </div>
+
   </article>
 
-  <article>
-    <h2>Your data</h2>
+  <article class="info-editor">
 
-    <form id="edit">
-      <label for id="username">Username</label>
-      <input
-        type="text"
-        id="username"
-        min="3"
-        max="20"
-        name="username"
-        required
-      />
+    <h2>Edit your info</h2>
 
-      <label for id="email">Email</label>
-      <input type="email" id="email" name="email" required />
+    <form id="signup" method="POST" action="/profile">
 
-      <label for id="age">Age</label>
-      <input type="number" id="age" name="age" required />
+        <fieldset class="form-container">
+            <label for id="username">Username</label>
+            <input type="text" id="username" minlength="3" maxlength="20" name="username" required value="{{username}}"/>
+                <div class="error-container">
+                    <p class="error-message">This is an error message!</p>
+                </div>
 
-      <label for id="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        min="8"
-        max="50"
-        name="password"
-        required
-      />
+            <label for id="email">Email</label>
+            <input type="email" id="email" name="email" required value="{{email}}"/>
+                <div class="error-container">
+                    <p class="error-message">This is an error message!</p>
+                </div>
+
+            <label for id="age">Age</label>
+            <input type="number" id="age" name="age" required value="{{age}}"/>
+                <div class="error-container">
+                    <p class="error-message">This is an error message!</p>
+                </div>
+
+            <label for id="password">Password</label>
+            <input type="password" id="password" minlength="8" maxlength="50" name="password" required value="{{password}}"/>
+                <div class="error-container">
+                    <p class="error-message">This is an error message!</p>
+                </div>
+
+            <input type="submit" id="submit" class="login-button" value="Edit info" />
+        </fieldset>
+
+        <input type="button" id="delete" class="delete-button" value="Delete account"/>
+
     </form>
-  </article>
 
-  <button>Log out</button>
+  </article>
 
 </section>
 

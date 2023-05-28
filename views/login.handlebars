@@ -1,13 +1,37 @@
 {{> header}}
 
-<form id="login" method="POST" action="/login">
-    <label for id="username">Username</label>
-    <input type="text" id="username" minlength="3" maxlength="20" name="username" required>
+<section class="container">
 
-    <label for id="password">Password</label>
-    <input type="password" id="password" minlength="8" maxlength="50" name="password" required/>
+    <h1 class="title">Login</h1>
 
-    <input type="submit" id="submit" class="login-button" value="Log in!">
-</form>
+    <form id="login" method="POST" action="/login">
 
-<a href="/signup" class="italic">Sign up</a>
+        <fieldset class="form-container">
+            <label for id="username">Username</label>
+            <input type="text" id="username" minlength="3" maxlength="20" name="username" required>
+                <div class="error-container">
+                    <p class="error-message">This is an error message!</p>
+                </div>
+            {{!-- {{ if error }} 
+            {{ <p>error</p>}}
+            {{ /if }} --}}
+            {{!-- <div class="error-container">
+                <p class="error-message">Dit is een error message!</p>
+            </div> --}}
+
+            <label for id="password">Password</label>
+            <input type="password" id="password" minlength="8" maxlength="50" name="password" required/>
+                <div class="error-container">
+                    <p class="error-message">This is an error message!</p>
+                </div>
+            {{!-- <div class="error-container">
+                <p class="error-message">Dit is een error message!</p>
+            </div> --}}
+        </fieldset>
+
+        <input type="submit" id="submit" class="login-button" value="Log in!">
+        
+    </form>
+
+    <a href="/signup" class="italic">Sign up instead</a>
+</section>

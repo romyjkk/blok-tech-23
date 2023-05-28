@@ -42,6 +42,11 @@ button {
   font-size: 18px;
 }
 
+p {
+  text-align: center;
+  align-self: center;
+}
+
 .italic {
   font-style: italic;
   text-decoration: underline;
@@ -49,26 +54,52 @@ button {
   font-size: 16px;
 }
 
+.error h1 {
+  font-family: "Poppins", "serif";
+}
+.error p {
+  font-family: "Poppins", "serif";
+  font-style: italic;
+}
+
 body {
   display: flex;
   flex-direction: column;
-  background: #440000;
-  position: relative;
-  min-height: 100vh;
+  gap: 2rem;
+  background-image: url("../images/background.jpeg");
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
 }
-
-header,
-.title {
-  width: 100%;
-  margin: 4rem 0 4rem 0;
-  background: #350000;
-  box-shadow: 0px 4px 10px #000000;
-  border: none;
+body .container {
+  display: flex;
+  flex-direction: column;
 }
-
-.title {
+body .container .title {
   text-align: center;
-  padding: 2rem 0 2rem 0;
+  margin: 1rem 0 4rem 0;
+}
+@media (min-width: 576px) {
+  body {
+    background-position: center bottom;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    gap: 4rem;
+  }
+}
+
+header {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+header img {
+  max-width: 30rem;
 }
 
 #login,
@@ -76,81 +107,149 @@ header,
 #edit {
   display: flex;
   flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
   width: 80%;
   align-self: center;
-  margin-top: 3rem;
 }
-#login input,
-#signup input,
-#edit input {
+#login .form-container,
+#signup .form-container,
+#edit .form-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  border: none;
+  background: #000000;
+  padding: 1rem;
+  align-self: center;
+  width: 90%;
+}
+#login .form-container input,
+#signup .form-container input,
+#edit .form-container input {
   box-shadow: 0px 2px 5px #000000;
   border: none;
   margin: 0.5rem 0 1.5rem 0;
+  border: 3px solid #000000;
 }
-#login input:focus,
-#signup input:focus,
-#edit input:focus {
-  border: 3px solid #350000;
+#login .form-container input:hover,
+#signup .form-container input:hover,
+#edit .form-container input:hover {
+  background: #d9d9d9;
+}
+#login .form-container input:invalid:focus,
+#signup .form-container input:invalid:focus,
+#edit .form-container input:invalid:focus {
+  border: 3px solid #4f0000;
   outline: none;
+}
+#login .form-container input:valid:focus,
+#signup .form-container input:valid:focus,
+#edit .form-container input:valid:focus {
+  border: 3px solid #1e4f04;
+  outline: none;
+}
+#login .form-container .error-container,
+#signup .form-container .error-container,
+#edit .form-container .error-container {
+  box-shadow: 0px 5px 10px #000000;
+  border: none;
+  width: 100%;
+  height: 2rem;
+  background: #5f0000;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+#login .form-container .error-container .error-message,
+#signup .form-container .error-container .error-message,
+#edit .form-container .error-container .error-message {
+  margin: 0;
+}
+@media (min-width: 576px) {
+  #login .form-container,
+  #signup .form-container,
+  #edit .form-container {
+    width: 70%;
+    padding: 1rem 3rem 1rem 3rem;
+  }
+}
+@media (min-width: 768px) {
+  #login .form-container,
+  #signup .form-container,
+  #edit .form-container {
+    width: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  #login .form-container,
+  #signup .form-container,
+  #edit .form-container {
+    width: 40%;
+  }
+}
+@media (min-width: 1400px) {
+  #login .form-container,
+  #signup .form-container,
+  #edit .form-container {
+    width: 30%;
+  }
 }
 #login .login-button,
 #signup .login-button,
 #edit .login-button {
   width: fit-content;
   color: #ffffff;
-  background: #350000;
-  border: none;
+  background: #4f0000;
+  border: 3px solid #000000;
   padding: 1rem 2rem 1rem 2rem;
   align-self: center;
   border-radius: 30px;
   cursor: pointer;
-  margin: 3rem 0 3rem 0;
+  margin: 2rem 0 2rem 0;
   text-decoration: none;
 }
 #login .login-button:hover,
 #signup .login-button:hover,
 #edit .login-button:hover {
-  background: #ffffff;
-  color: #440000;
+  background: #000000;
+  color: #ffffff;
+  border: 3px solid #4f0000;
 }
 #login .login-button:active,
 #signup .login-button:active,
 #edit .login-button:active {
   background: #ffffff;
-  color: #440000;
-  border: 3px dotted #350000;
+  color: #4f0000;
+  border: 3px dotted #000000;
 }
 #login .login-button:focus,
 #signup .login-button:focus,
 #edit .login-button:focus {
-  border: 3px solid #ffffff;
+  border: 3px dotted #ffffff;
   outline: none;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   #login,
   #signup,
   #edit {
-    width: 50%;
-  }
-}
-@media (min-width: 992px) {
-  #login,
-  #signup,
-  #edit {
-    width: 40%;
+    gap: 4rem;
   }
 }
 
 .italic {
   cursor: pointer;
-  transition: 1s;
-}
-
-p {
-  margin-bottom: 3rem;
-  width: 80%;
-  text-align: center;
+  margin-bottom: 2rem;
+  width: fit-content;
   align-self: center;
+}
+.italic:hover {
+  color: #797979;
+}
+.italic:focus {
+  border: 3px dotted #4f0000;
+  outline: none;
 }
 
 .questions {
@@ -158,7 +257,7 @@ p {
   align-self: center;
   box-shadow: 0px 4px 10px #000000;
   border: none;
-  background: #350000;
+  background: #000000;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -180,59 +279,42 @@ p {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #d9d9d9;
 }
 .questions form fieldset label,
 .questions form fieldset input {
   margin: 0.3em;
 }
-.questions form fieldset label {
-  color: #000000;
-}
 .questions form fieldset input {
   cursor: pointer;
 }
 .questions form fieldset input:active, .questions form fieldset input:checked {
-  accent-color: #350000;
-}
-.questions .next-button {
-  width: fit-content;
-  color: #000000;
-  background: #ffffff;
-  border: none;
-  padding: 1rem 2rem 1rem 2rem;
-  align-self: center;
-  border-radius: 30px;
-  cursor: pointer;
-  margin: 2rem 0 2rem 0;
-  text-decoration: none;
+  accent-color: #000000;
 }
 .questions .next-button:hover {
-  background: #000000;
+  background: #d9d9d9;
   color: #ffffff;
 }
 .questions .next-button:active {
   color: #ffffff;
-  border: 3px dotted #000000;
+  border: 3px dotted #d9d9d9;
 }
 .questions .next-button:focus {
-  border: 3px solid #000000;
+  border: 3px solid #d9d9d9;
   outline: none;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
+.bubble-container {
   height: 2rem;
   margin-bottom: 2rem;
   display: flex;
   align-self: center;
 }
-footer .progress-bubbles {
+.bubble-container .progress-bubbles {
   align-self: center;
   align-items: center;
 }
-footer .progress-bubbles .bubble {
+.bubble-container .progress-bubbles .bubble {
   box-shadow: 0px 2px 5px #000000;
   border: none;
   height: 1.5rem;
@@ -243,11 +325,11 @@ footer .progress-bubbles .bubble {
   cursor: pointer;
   margin: 0 1rem 0 1rem;
 }
-footer .progress-bubbles .bubble:hover {
-  background: #989898;
+.bubble-container .progress-bubbles .bubble:hover {
+  background: #d9d9d9;
 }
-footer .progress-bubbles .bubble:first-of-type {
-  background: #000000;
+.bubble-container .progress-bubbles .bubble:first-of-type {
+  background: #d9d9d9;
 }
 
 .matcher {
@@ -259,11 +341,10 @@ footer .progress-bubbles .bubble:first-of-type {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 4rem;
 }
 .matcher .matcher-slider .off-to-the-side {
   margin-top: 2rem;
-  background: #350000;
+  background: #000000;
   box-shadow: 0px 4px 10px #000000;
   border: none;
   width: 1rem;
@@ -277,7 +358,7 @@ footer .progress-bubbles .bubble:first-of-type {
   position: relative;
   width: 60%;
   height: 0%;
-  background: #350000;
+  background: #000000;
   box-shadow: 0px 4px 10px #000000;
   border: none;
 }
@@ -308,7 +389,7 @@ footer .progress-bubbles .bubble:first-of-type {
   transition: 0.5s;
 }
 .matcher .matcher-slider figure .matcher-icons figure:hover {
-  background: #989898;
+  background: #d9d9d9;
 }
 .matcher .matcher-slider figure .matcher-icons figure:active:first-of-type img {
   transform: scale(1.1);
@@ -330,6 +411,7 @@ footer .progress-bubbles .bubble:first-of-type {
   border-radius: 45px;
   width: 30%;
   cursor: pointer;
+  margin: 2rem 0 2rem 0;
 }
 .matcher .matcher-buttons .icon {
   width: 15%;
@@ -347,12 +429,44 @@ footer .progress-bubbles .bubble:first-of-type {
   transform: translateX(0.5em);
 }
 
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  align-self: center;
+  gap: 1rem;
+  background: #000000;
+  padding: 1rem;
+}
+.profile-container figure {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: #4f0000;
+}
+.profile-container div {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+.profile-container div p {
+  text-align: left;
+}
+
+.info-editor {
+  display: flex;
+  flex-direction: column;
+}
+.info-editor h2 {
+  text-align: center;
+  margin: 3rem 0 2rem 0;
+}
 .profile {
   display: flex;
   flex-direction: column;
 }
 .profile article:first-of-type {
-  background: #350000;
+  background: #000000;
   box-shadow: 0px 5px 10px #000000;
   border: none;
   padding: 1rem;
@@ -375,29 +489,20 @@ footer .progress-bubbles .bubble:first-of-type {
 }
 .profile article:nth-of-type(2) h2 {
   text-align: center;
+  margin-bottom: 1rem;
 }
 .profile button {
-  width: fit-content;
-  color: #ffffff;
-  background: #350000;
-  border: none;
-  padding: 1rem 2rem 1rem 2rem;
-  align-self: center;
-  border-radius: 30px;
-  cursor: pointer;
-  margin: 3rem 0 3rem 0;
-  text-decoration: none;
   box-shadow: 0px 5px 10px #000000;
   border: none;
 }
 .profile button:hover {
   background: #ffffff;
-  color: #440000;
+  color: #4f0000;
 }
 .profile button:active {
   background: #ffffff;
-  color: #440000;
-  border: 3px dotted #350000;
+  color: #4f0000;
+  border: 3px dotted #000000;
 }
 .profile button:focus {
   border: 3px solid #ffffff;
@@ -416,24 +521,32 @@ h1.list {
   text-align: center;
 }
 
-footer {
-  background: #350000;
+.error {
+  background-image: url("../public/images/lionel.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+.main-footer {
+  background: #000000;
   width: 100%;
   height: 8rem;
-  margin-bottom: 0;
+  margin-top: auto;
   display: flex;
   justify-content: center;
   border-top-left-radius: 100%;
   border-top-right-radius: 100%;
 }
-footer .nav {
+.main-footer .nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 70%;
   margin-top: 1.5rem;
 }
-footer .nav a {
+.main-footer .nav a {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
@@ -443,16 +556,16 @@ footer .nav a {
   align-items: center;
   cursor: pointer;
 }
-footer .nav a img {
+.main-footer .nav a img {
   width: 60%;
 }
-footer .nav a:first-of-type, footer .nav a:nth-of-type(4) {
+.main-footer .nav a:first-of-type, .main-footer .nav a:nth-of-type(4) {
   margin-top: 1.5rem;
 }
-footer .nav a:hover {
-  background: #989898;
+.main-footer .nav a:hover {
+  background: #d9d9d9;
 }
-footer .nav a:focus {
+.main-footer .nav a:focus {
   box-shadow: 0px 0px 15px #000000;
   border: none;
 }

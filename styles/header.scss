@@ -1,15 +1,13 @@
 @import "helpers/variables";
 @import "helpers/mixins";
 
-header,
-.title {
+header {
   width: 100%;
-  margin: 4rem 0 4rem 0;
-  background: $secondaryColor;
-  @include boxshadow(0px 4px 10px);
-}
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
 
-.title {
-  text-align: center;
-  padding: 2rem 0 2rem 0;
+  img {
+    max-width: 30rem;
+  }
 }

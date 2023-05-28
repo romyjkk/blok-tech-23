@@ -6,31 +6,92 @@
 #edit {
   display: flex;
   flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
   width: 80%;
   align-self: center;
-  margin-top: 3rem;
 
-  input {
-    @include boxshadow(0px 2px 5px);
-    margin: 0.5rem 0 1.5rem 0;
-
-    &:focus {
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border: none;
+    background: $secondaryColor;
+    padding: 1rem;
+    align-self: center;
+    width: 90%;
+    input {
+      @include boxshadow(0px 2px 5px);
+      margin: 0.5rem 0 1.5rem 0;
       border: 3px solid $secondaryColor;
-      outline: none;
+
+      &:hover {
+        background: $quaternaryColor;
+      }
+    }
+
+    // if js is turned off!
+
+    input:invalid {
+      &:focus {
+        border: 3px solid $primaryColor;
+        outline: none;
+      }
+    }
+
+    input:valid {
+      &:focus {
+        border: 3px solid $sixthcolor;
+        outline: none;
+      }
+    }
+
+    .error-container {
+      @include boxshadow(0px 5px 10px);
+      width: 100%;
+      height: 2rem;
+      background: $primaryErrorColor;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: center;
+      .error-message {
+        margin: 0;
+      }
+    }
+
+    @media (min-width: $sm) {
+      width: 70%;
+      padding: 1rem 3rem 1rem 3rem;
+    }
+
+    @media (min-width: $md) {
+      width: 50%;
+    }
+
+    @media (min-width: $xl) {
+      width: 40%;
+      // padding: 1rem 3rem 1rem 3rem;
+    }
+
+    @media (min-width: $xxl) {
+      width: 30%;
     }
   }
 
   .login-button {
     @include button(
       $primaryTextColor,
-      $secondaryColor,
+      $primaryColor,
       1rem 2rem 1rem 2rem,
-      3rem 0 3rem 0
+      2rem 0 2rem 0,
+      3px solid $secondaryColor
     );
 
     &:hover {
-      background: $tertiaryColor;
-      color: $primaryColor;
+      background: $secondaryColor;
+      color: $primaryTextColor;
+      border: 3px solid $primaryColor;
     }
 
     &:active {
@@ -40,21 +101,28 @@
     }
 
     &:focus {
-      border: 3px solid $primaryTextColor;
+      border: 3px dotted $tertiaryColor;
       outline: none;
     }
   }
 
-  @media (min-width: $md) {
-    width: 50%;
-  }
-
-  @media (min-width: $lg) {
-    width: 40%;
+  @media (min-width: $xl) {
+    gap: 4rem;
   }
 }
 
 .italic {
   cursor: pointer;
-  transition: 1s;
+  margin-bottom: 2rem;
+  width: fit-content;
+  align-self: center;
+
+  &:hover {
+    color: $tertiaryTextColor;
+  }
+
+  &:focus {
+    border: 3px dotted $primaryColor;
+    outline: none;
+  }
 }

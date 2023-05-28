@@ -4,7 +4,29 @@
 body {
   display: flex;
   flex-direction: column;
-  background: $primaryColor;
-  position: relative;
-  min-height: 100vh;
+  gap: 2rem;
+  background-image: url("../images/background.jpeg");
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      text-align: center;
+      margin: 1rem 0 4rem 0;
+    }
+  }
+
+  @media (min-width: $sm) {
+    background-position: center bottom;
+  }
+
+  @media (min-width: $xl) {
+    gap: 4rem;
+  }
 }

@@ -28,7 +28,23 @@ button {
   font-size: 18px;
 }
 
+p {
+  text-align: center;
+  align-self: center;
+}
+
 .italic {
   @include textDecoration(italic, underline, center);
   font-size: 16px;
+}
+
+.error {
+  h1 {
+    font-family: $tertiaryFont;
+  }
+
+  p {
+    font-family: $tertiaryFont;
+    font-style: italic;
+  }
 }

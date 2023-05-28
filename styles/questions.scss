@@ -2,10 +2,8 @@
 @import "helpers/mixins";
 
 p {
-  margin-bottom: 3rem;
-  width: 80%;
-  text-align: center;
-  align-self: center;
+  // margin-bottom: 3rem;
+  // width: 80%;
 }
 
 .questions {
@@ -42,7 +40,7 @@ p {
       }
 
       label {
-        color: $secondaryTextColor;
+        // color: $secondaryTextColor;
       }
 
       input {
@@ -56,12 +54,12 @@ p {
   }
 
   .next-button {
-    @include button(
-      $quaternaryColor,
-      $tertiaryColor,
-      1rem 2rem 1rem 2rem,
-      2rem 0 2rem 0
-    );
+    // @include button(
+    //   $quaternaryColor,
+    //   $tertiaryColor,
+    //   1rem 2rem 1rem 2rem,
+    //   2rem 0 2rem 0
+    // );
 
     &:hover {
       background: $quaternaryColor;
@@ -80,10 +78,7 @@ p {
   }
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-
+.bubble-container {
   height: 2rem;
   margin-bottom: 2rem;
   display: flex;
@@ -102,7 +97,7 @@ footer {
       margin: 0 1rem 0 1rem;
 
       &:hover {
-        background: $fifthColor;
+        background: $quaternaryColor;
       }
 
       &:first-of-type {

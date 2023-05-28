@@ -1,20 +1,34 @@
 // colors
 
-$primaryColor: #440000;
-$secondaryColor: #350000;
+$primaryColor: #4f0000;
+$secondaryColor: #000000;
 $tertiaryColor: #ffffff;
-$quaternaryColor: #000000;
-$fifthColor: #989898;
+$quaternaryColor: #d9d9d9;
+$fifthColor: #797979;
+$sixthcolor: #1e4f04;
 
 // text
 
 $primaryTextColor: #ffffff;
 $secondaryTextColor: #000000;
+$tertiaryTextColor: #797979;
 
 // fonts
 
 $primaryFont: "Antic Didone", "serif";
 $secondaryFont: "Antic", "serif";
+
+$tertiaryFont: "Poppins", "serif";
+
+// font sizes
+
+// $sm-header: ;
+// $sm-title: ;
+// $sm-text: ;
+
+// $lg-header: ;
+// $lg-title: ;
+// $lg-text: ;
 
 // breakpoints
 
@@ -23,3 +37,7 @@ $md: 768px;
 $lg: 992px;
 $xl: 1200px;
 $xxl: 1400px;
+
+// errors
+
+$primaryErrorColor: #5f0000;

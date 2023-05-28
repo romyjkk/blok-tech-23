@@ -1,6 +1,47 @@
 @import "helpers/variables";
 @import "helpers/mixins";
 
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  align-self: center;
+  gap: 1rem;
+  background: $secondaryColor;
+  padding: 1rem;
+
+  figure {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background: $primaryColor;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    p {
+      text-align: left;
+    }
+  }
+}
+
+.info-editor {
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    text-align: center;
+    margin: 3rem 0 2rem 0;
+  }
+
+  form {
+    .form-container {
+    }
+  }
+}
+
 .profile {
   display: flex;
   flex-direction: column;
@@ -28,16 +69,17 @@
 
     h2 {
       text-align: center;
+      margin-bottom: 1rem;
     }
   }
 
   button {
-    @include button(
-      $tertiaryColor,
-      $secondaryColor,
-      1rem 2rem 1rem 2rem,
-      3rem 0 3rem 0
-    );
+    // @include button(
+    //   $tertiaryColor,
+    //   $secondaryColor,
+    //   1rem 2rem 1rem 2rem,
+    //   3rem 0 3rem 0
+    // );
     @include boxshadow(0px 5px 10px);
 
     &:hover {

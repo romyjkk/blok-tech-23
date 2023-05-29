@@ -21,7 +21,7 @@ const User = require("./models/User.js");
 
 // rest
 
-const passwordHash = require("bcrypt");
+const bcrypt = require("bcrypt");
 
 // express & express handlebars & express session
 
@@ -60,14 +60,33 @@ app.get("/login", (req, res) => {
 // make an account
 
 app.post("/signup", async (req, res) => {
-  const newUser = {
-    username: req.body.username,
-    email: req.body.email,
-    age: req.body.age,
-    password: req.body.password,
-  };
+  const { username, email, age, password } = req.body;
+  // const newUser = {
+  //   username: req.body.username,
+  //   email: req.body.email,
+  //   age: req.body.age,
+  //   password: req.body.password,
+  // };
 
-  await User.create(newUser);
+  // check username
+  if (!username) {
+    req.session.error = "Please provide a username!";
+    res.render("signup", { error: req.session.error });
+  }
+
+  // check email
+  if (email) {
+  }
+
+  // check age
+  if (age) {
+  }
+
+  // check password
+  const saltRounds = 10;
+  bcrypt.hash(password, saltRounds, (err, hash) => {});
+
+  await User.create({ username, email, age, password });
 
   req.session.username = newUser.username;
 
@@ -76,25 +95,23 @@ app.post("/signup", async (req, res) => {
 
 // login
 
-app.post("/login", (req, res) => {
+app.post("/login", async (req, res) => {
   try {
-    const existingUser = {
-      username: req.body.username,
-      password: req.body.password,
-    };
+    const { username, password } = req.body;
 
-    // hij gaat zoeken naar de gebruiker in de database
-    User.findOne(existingUser).then((user) => {
-      // als de gebruiker niet bestaat:
-      if (!user) {
-        req.session.error("This user doesn't exist!");
-        // req.session.error("error message") en dan evt redirect
-        //
-        // als de gebruiker wel bestaat:
-      } else if (user) {
-        // hij maakt een session aan en redirect je naar de "questions" pagina
-        req.session.username = existingUser.username;
-        res.redirect("questions");
+    User.findOne(username).then((user) => {
+      if (user) {
+        const checkingPassword = bcrypt.compare(password, username.password);
+        if (checkingPassword) {
+          req.session.username = req.body.username;
+          res.redirect("questions");
+        } else {
+          req.session.error = "Password incorrect";
+          res.render("login", { error: req.session.error });
+        }
+      } else {
+        console.log("User doesn't exist");
+        res.render("login", { error: req.session.error });
       }
     });
   } catch (error) {

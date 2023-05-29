@@ -27,38 +27,22 @@
             <label for id="username">Username</label>
             <input type="text" id="username" minlength="3" maxlength="20" name="username" required value="{{username}}"/>
                 
-                {{#if error}}
-                    <div class="error-container">
-                        <p class="error-message">{{error}}</p>
-                    </div>
-                {{/if}}
-
             <label for id="email">Email</label>
             <input type="email" id="email" name="email" required value="{{email}}"/>
-                
-                {{#if error}}
-                    <div class="error-container">
-                        <p class="error-message">{{error}}</p>
-                    </div>
-                {{/if}}
 
             <label for id="age">Age</label>
             <input type="number" id="age" name="age" required value="{{age}}"/>
-                
-                {{#if error}}
-                    <div class="error-container">
-                        <p class="error-message">{{error}}</p>
-                    </div>
-                {{/if}}
 
             <label for id="password">Password</label>
             <input type="password" id="password" minlength="8" maxlength="50" name="password" required value="{{password}}"/>
-                
-                {{#if error}}
-                    <div class="error-container">
-                        <p class="error-message">{{error}}</p>
-                    </div>
-                {{/if}}
+
+            {{#if errors}}
+              <div class="error-container">
+                {{#each errors}}
+                  <p class="error-message">{{this}}</p>
+                {{/each}}
+              </div>
+            {{/if}}
 
             <input type="submit" id="submit" class="login-button" value="Edit info" />
         </fieldset>

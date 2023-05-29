@@ -10,29 +10,16 @@
             <label for id="username">Username</label>
             <input type="text" id="username" minlength="3" maxlength="20" name="username" required>
 
-                {{#if error}}
-                    <div class="error-container">
-                        <p class="error-message">{{error}}</p>
-                    </div>
-                {{/if}}
-            {{!-- {{ if error }} 
-            {{ <p>error</p>}}
-            {{ /if }} --}}
-            {{!-- <div class="error-container">
-                <p class="error-message">Dit is een error message!</p>
-            </div> --}}
-
             <label for id="password">Password</label>
             <input type="password" id="password" minlength="8" maxlength="50" name="password" required/>
 
                 {{#if error}}
                     <div class="error-container">
-                        <p class="error-message">{{error}}</p>
+                    {{#each error}}
+                        <p class="error-message">{{this}}</p>
+                    {{/each}}
                     </div>
                 {{/if}}
-            {{!-- <div class="error-container">
-                <p class="error-message">Dit is een error message!</p>
-            </div> --}}
         </fieldset>
 
         <input type="submit" id="submit" class="login-button" value="Log in!">

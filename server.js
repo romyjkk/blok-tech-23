@@ -50,47 +50,91 @@ app.get("/", (req, res) => {
 });
 
 app.get("/signup", (req, res) => {
-  res.render("signup", { title: "Signup" });
+  res.render("signup", { title: "Signup", error: req.session.error });
 });
 
 app.get("/login", (req, res) => {
-  res.render("login", { title: "Login" });
+  res.render("login", { title: "Login", error: req.session.error });
 });
 
 // make an account
 
 app.post("/signup", async (req, res) => {
-  const { username, email, age, password } = req.body;
-  // const newUser = {
-  //   username: req.body.username,
-  //   email: req.body.email,
-  //   age: req.body.age,
-  //   password: req.body.password,
-  // };
+  try {
+    const { username, email, age, password } = req.body;
 
-  // check username
-  if (!username) {
-    req.session.error = "Please provide a username!";
-    res.render("signup", { error: req.session.error });
+    // check username
+    if (username) {
+      if (username.length < 3) {
+        req.session.error =
+          "Please make sure the username contains at least 3 characters";
+        res.render("signup", { error: req.session.error });
+        return;
+      } else if (username.length > 20) {
+        req.session.error =
+          "Please make sure the username doesn't contain more than 20 characters";
+        res.render("signup", { error: req.session.error });
+        return;
+      } else {
+        console.log("Username is valid!");
+      }
+    } else {
+      req.session.error = "Please provide a username!";
+      res.render("signup", { error: req.session.error });
+      return;
+    }
+
+    // check email
+    if (email) {
+      const emailRegex =
+        /^[-!#$%&'*+\/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/;
+      if (emailRegex.test(email)) {
+        // something good
+      } else {
+        req.session.error = "This e-mail address is not valid";
+        res.render("signup", { error: req.session.error });
+        return;
+        // res.render("signup");
+      }
+    } else {
+      req.session.error = "Please provide an e-mail address";
+      res.render("signup", { error: req.session.error });
+      return;
+      // res.render("signup");
+    }
+
+    // check age
+    if (age) {
+      // something good
+    } else {
+      req.session.error = "Please provide your age";
+      res.render("signup", { error: req.session.error });
+      return;
+      // res.render("signup");
+    }
+
+    // check password
+    if (!password) {
+      req.session.error = "Please provide a password";
+      res.render("signup", { error: req.session.error });
+      return;
+      // res.render("signup");
+    }
+
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+    const user = await User.create({
+      username,
+      email,
+      age,
+      password: hashedPassword,
+    });
+    req.session.username = user.username;
+    res.redirect("/profile");
+  } catch (error) {
+    console.log(error);
   }
-
-  // check email
-  if (email) {
-  }
-
-  // check age
-  if (age) {
-  }
-
-  // check password
-  const saltRounds = 10;
-  bcrypt.hash(password, saltRounds, (err, hash) => {});
-
-  await User.create({ username, email, age, password });
-
-  req.session.username = newUser.username;
-
-  res.redirect("questions");
 });
 
 // login
@@ -99,21 +143,23 @@ app.post("/login", async (req, res) => {
   try {
     const { username, password } = req.body;
 
-    User.findOne(username).then((user) => {
-      if (user) {
-        const checkingPassword = bcrypt.compare(password, username.password);
-        if (checkingPassword) {
-          req.session.username = req.body.username;
-          res.redirect("questions");
-        } else {
-          req.session.error = "Password incorrect";
-          res.render("login", { error: req.session.error });
-        }
+    const user = await User.findOne({ username });
+
+    if (user) {
+      const checkingPassword = await bcrypt.compare(password, user.password);
+      if (checkingPassword) {
+        req.session.username = req.body.username;
+        // res.redirect("profile");
       } else {
-        console.log("User doesn't exist");
+        req.session.error = "Password incorrect";
         res.render("login", { error: req.session.error });
+        return;
       }
-    });
+    } else {
+      req.session.error = "User doesn't exist";
+      res.render("login", { error: req.session.error });
+      return;
+    }
   } catch (error) {
     console.log(error);
   }
@@ -141,7 +187,7 @@ app.get("/profile", (req, res) => {
   const email = req.session.email;
   const age = req.session.age;
   const password = req.session.password;
-  res.render("profile", { title: "Profile", email, username, age, password });
+  res.render("profile", { title: "Profile", username, email, age, password });
 });
 
 app.get("*", (req, res) => {

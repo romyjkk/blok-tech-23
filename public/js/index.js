@@ -6,8 +6,8 @@ console.log(
 
 // Remove "novalidate" if JS is turned off (enabling standard HTML form validation)
 
-const signupForm = document.getElementById("signup");
 const loginForm = document.getElementById("login");
+const signupForm = document.getElementById("signup");
 
-signupForm.setAttribute("novalidate", true);
 loginForm.setAttribute("novalidate", true);
+signupForm.setAttribute("novalidate", true);

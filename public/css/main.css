@@ -20,7 +20,8 @@ h2,
 p,
 label,
 button,
-a {
+a,
+li {
   color: #ffffff;
 }
 
@@ -37,7 +38,8 @@ p,
 label,
 input,
 a,
-button {
+button,
+li {
   font-family: "Antic", "serif";
   font-size: 18px;
 }
@@ -433,6 +435,7 @@ header img {
 .profile-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   width: 90%;
   align-self: center;
   gap: 1rem;
@@ -454,60 +457,57 @@ header img {
   text-align: left;
 }
 
-.info-editor {
+.profile-information {
   display: flex;
   flex-direction: column;
+  align-self: center;
+  width: 80%;
+  background: #000000;
 }
-.info-editor h2 {
+.profile-information h2 {
   text-align: center;
-  margin: 3rem 0 2rem 0;
+  margin: 1rem 0 2rem 0;
+}
+.profile-information ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-self: center;
+  margin: 0 0 2rem 0;
 }
 
-.profile {
-  display: flex;
-  flex-direction: column;
-}
-.profile article:first-of-type {
-  background: #000000;
-  box-shadow: 0px 5px 10px #000000;
-  border: none;
-  padding: 1rem;
+.buttons {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
+  margin: 2rem 0 0 0;
 }
-.profile article:first-of-type figure {
-  width: 5rem;
-  height: 5rem;
-  background: #ffffff;
-  border-radius: 50%;
-  margin: 2rem 0 2rem;
+.buttons a {
+  width: fit-content;
+  color: #ffffff;
+  background: #4f0000;
+  border: 3px solid #000000;
+  padding: 1rem 2rem 1rem 2rem;
+  align-self: center;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 0;
+  text-decoration: none;
 }
-.profile article:nth-of-type(2) {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
+.buttons a:hover {
+  background: #000000;
+  color: #ffffff;
+  border: 3px solid #4f0000;
 }
-.profile article:nth-of-type(2) h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-.profile button {
-  box-shadow: 0px 5px 10px #000000;
-  border: none;
-}
-.profile button:hover {
-  background: #ffffff;
-  color: #4f0000;
-}
-.profile button:active {
+.buttons a:active {
   background: #ffffff;
   color: #4f0000;
   border: 3px dotted #000000;
 }
-.profile button:focus {
-  border: 3px solid #ffffff;
+.buttons a:focus {
+  border: 3px dotted #ffffff;
   outline: none;
 }
 

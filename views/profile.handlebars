@@ -12,12 +12,23 @@
 
     <div>
       <h2>Hi, {{username}}!</h2>
-      <p>You can edit your information here.</p>
+      <p>Welcome to your profile.</p>
     </div>
 
   </article>
 
-  <article class="info-editor">
+  <article class="profile-information">
+    <h2>Your information</h2>
+
+    <ul>
+      <li>Username: {{username}}</li>
+      <li>Email: {{email}}</li>
+      <li>Age: {{age}}</li>
+      <li>Password: ****</li>
+    </ul>
+  </article>
+
+  {{!-- <article class="info-editor">
 
     <h2>Edit your info</h2>
 
@@ -49,11 +60,14 @@
 
     </form>
 
+  </article> --}}
+
+  <article class="buttons">
+
+    <a href="/delete">Delete your account</a>
+    <a href="/logout">Log out</a>
+
   </article>
-
-  <a href="/delete">Delete your account</a>
-
-  <a href="/logout">Log out</a>
 
 </section>
 

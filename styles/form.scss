@@ -30,8 +30,6 @@
       }
     }
 
-    // if js is turned off!
-
     input:invalid {
       &:focus {
         border: 3px solid $primaryColor;

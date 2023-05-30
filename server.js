@@ -4,6 +4,7 @@
 
 // server (express)
 
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -36,11 +37,19 @@ app.use(express.json());
 
 app.use(
   session({
-    secret: "youdidnthearthisfrommebutyouareanerd",
+    secret: process.env.SESSION_SECRET,
     saveUninitialized: true,
     resave: false,
+    // cookie: { secure: true },
   })
 );
+
+const checkLogin = (req, res, next) => {
+  if (req.session.username) {
+    res.redirect("/profile");
+  }
+  next();
+};
 
 // routes
 
@@ -48,13 +57,13 @@ app.get("/", (req, res) => {
   res.redirect("/login");
 });
 
-app.get("/signup", (req, res) => {
+app.get("/signup", checkLogin, (req, res) => {
   const error = req.session.error;
   req.session.error = "";
   res.render("signup", { title: "Signup", error: error });
 });
 
-app.get("/login", (req, res) => {
+app.get("/login", checkLogin, (req, res) => {
   const error = req.session.error;
   req.session.error = "";
   res.render("login", { title: "Login", error: error });
@@ -201,13 +210,13 @@ app.get("/list", (req, res) => {
   }
 });
 
-app.get("/profile", (req, res) => {
+app.get("/profile", async (req, res) => {
   if (req.session.username) {
     const username = req.session.username;
-    const email = req.session.email;
-    const age = req.session.age;
-    const password = req.session.password;
-    res.render("profile", { title: "Profile", username, email, age, password });
+    const user = await User.findOne({ username: username });
+    const { email, age } = user;
+
+    res.render("profile", { title: "Profile", username, email, age });
   } else {
     res.redirect("/login");
   }

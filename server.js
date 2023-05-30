@@ -121,7 +121,7 @@ app.post("/signup", async (req, res) => {
           age,
           password: hashedPassword,
         });
-        req.session.username = req.body.username;
+        req.session.username = user.username;
         res.redirect("/profile");
       }
     } else {
@@ -145,7 +145,7 @@ app.post("/login", async (req, res) => {
       if (user) {
         const checkingPassword = await bcrypt.compare(password, user.password);
         if (checkingPassword) {
-          req.session.username = req.body.username;
+          req.session.username = user.username;
           res.redirect("/profile");
         } else {
           req.session.error = "Password incorrect";
@@ -211,6 +211,29 @@ app.get("/profile", (req, res) => {
     res.render("profile", { title: "Profile", username, email, age, password });
   } else {
     res.redirect("/login");
+  }
+});
+
+app.get("/logout", (req, res) => {
+  if (req.session.username) {
+    req.session.username = false;
+    res.redirect("/login");
+  } else {
+    res.redirect("/login");
+  }
+});
+
+app.get("/delete", async (req, res) => {
+  const username = req.session.username;
+
+  try {
+    await User.findOneAndDelete({ username: username });
+    req.session.destroy();
+    res.redirect("/login");
+    console.log("Account deleted successfully");
+  } catch (error) {
+    console.log(error);
+    res.redirect("/profile");
   }
 });
 

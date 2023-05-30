@@ -106,6 +106,14 @@ app.post("/signup", async (req, res) => {
         }
       }
 
+      if (age < 14) {
+        req.session.error = "You need to be at least 14 years old to sign up";
+        return res.redirect("/signup");
+      } else if (age > 120) {
+        req.session.error = "I don't believe you're older than 120 years";
+        return res.redirect("/signup");
+      }
+
       if (password) {
         const passwordRegex =
           /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;

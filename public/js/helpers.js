@@ -1,1 +1,0 @@
-Handlebars.registerPartial("footerPartial", "{{footer}}");

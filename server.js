@@ -1,4 +1,4 @@
-// file to handle all server related things
+// file to handle all server related things + routes
 
 // setting up the variables
 
@@ -15,7 +15,6 @@ const session = require("express-session");
 
 // other js files
 
-// const User = require("./models/User.js");
 const database = require("./database.js");
 const User = require("./models/User.js");
 
@@ -162,7 +161,7 @@ app.post("/login", async (req, res) => {
       }
     } else {
       req.session.error = "Please make sure you have filled in all the fields";
-      return res.redirect("/signup");
+      return res.redirect("/login");
     }
   } catch (error) {
     console.log(error);
@@ -215,11 +214,13 @@ app.get("/profile", (req, res) => {
 });
 
 app.get("/logout", (req, res) => {
-  if (req.session.username) {
-    req.session.username = false;
+  try {
+    req.session.destroy();
     res.redirect("/login");
-  } else {
-    res.redirect("/login");
+    console.log("Logged out!");
+  } catch (error) {
+    console.log(error);
+    res.redirect("/profile");
   }
 });
 

@@ -56,12 +56,32 @@ p {
   font-size: 16px;
 }
 
-.error h1 {
+.error .error-container h1 {
   font-family: "Poppins", "serif";
+  font-size: 10rem;
 }
-.error p {
+.error .error-container p {
   font-family: "Poppins", "serif";
   font-style: italic;
+  font-size: 2rem;
+}
+.error .error-container p .playpausebutton {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.error .error-container p .playpausebutton:hover {
+  color: #b0382a;
+}
+.error .error-button-container {
+  transition: 1s;
+}
+.error .error-button-container a {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+}
+.error .error-button-container:hover {
+  transform: rotate(360deg);
 }
 
 body {
@@ -523,11 +543,28 @@ h1.list {
 }
 
 .error {
-  background-image: url("../public/images/lionel.png");
-  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   background-size: cover;
   width: 100vw;
   height: 100vh;
+}
+.error .error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.error .error-button-container width a {
+  padding: 1rem;
+  border: 2px solid #ffffff;
+  text-align: center;
+}
+.error .error-button-container {
+  padding: 1rem;
+  border: 2px solid #ffffff;
 }
 
 .main-footer {

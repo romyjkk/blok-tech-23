@@ -41,12 +41,36 @@ p {
 }
 
 .error {
-  h1 {
-    font-family: $tertiaryFont;
+  .error-container {
+    h1 {
+      font-family: $tertiaryFont;
+      font-size: 10rem;
+    }
+    p {
+      font-family: $tertiaryFont;
+      font-style: italic;
+      font-size: 2rem;
+      .playpausebutton {
+        text-decoration: underline;
+        cursor: pointer;
+
+        &:hover {
+          color: #b0382a;
+        }
+      }
+    }
   }
 
-  p {
-    font-family: $tertiaryFont;
-    font-style: italic;
+  .error-button-container {
+    transition: 1s;
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    &:hover {
+      transform: rotate(360deg);
+    }
   }
 }

@@ -22,7 +22,6 @@ const User = require("./models/User.js");
 // rest
 
 const bcrypt = require("bcrypt");
-// const fetch = require("node-fetch");
 
 // express & express handlebars
 

@@ -1,6 +1,33 @@
 // const fetch = require("node-fetch");
 // import fetch from "node-fetch";
 
+// window.addEventListener("DOMContentLoaded", () => {
+//   const posterContainers = document.getElementsByClassName("movie-poster");
+
+//   fetch("/matcher")
+//     .then((response) => response.json())
+//     .then((data) => {
+//       const movies = data.movies;
+
+//       movies.forEach((movie, index) => {
+//         const posterPath = movie.poster_path;
+//         const posterUrl = `https://image.tmdb.org/t/p/w500${posterPath}`;
+
+//         const img = document.createElement("img");
+//         img.src = posterUrl;
+//         img.alt = movie.title;
+
+//         // Append the image to each individual poster container
+//         if (posterContainers[index]) {
+//           posterContainers[index].appendChild(img);
+//         }
+//       });
+//     })
+//     .catch((error) => {
+//       console.log("Error:", error);
+//     });
+// });
+
 // const options = {
 //   method: "GET",
 //   headers: {

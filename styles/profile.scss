@@ -66,7 +66,8 @@
   gap: 2rem;
   margin: 2rem 0 0 0;
 
-  a {
+  a,
+  button {
     @include button(
       $tertiaryColor,
       $primaryColor,
@@ -90,6 +91,27 @@
     &:focus {
       border: 3px dotted $tertiaryColor;
       outline: none;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    background: $secondaryColor;
+    width: 80%;
+
+    .begging {
+      margin: 2rem 1rem 0 1rem;
+    }
+
+    a {
+      margin-bottom: 2rem;
     }
   }
 }

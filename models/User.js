@@ -5,28 +5,23 @@ const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
-    required: [true, "Please provide a username!"],
+    required: true,
     trim: true,
-    unique: [true, "This username is already in use!"],
-    min: [3, "Please make sure your username is 3 or more characters long!"],
-    max: [
-      20,
-      "Please make sure your username doesn't have more than 20 characters!",
-    ],
+    unique: true,
   },
   age: {
     type: Number,
-    required: [true, "Please provide your age!"],
+    required: true,
   },
   email: {
     type: String,
-    required: [true, "Please make sure you provide an email address!"],
+    required: true,
     trim: true,
-    unique: [true, "This e-mail address is already in use!"],
+    unique: true,
   },
   password: {
     type: String,
-    required: [true, "Please make sure to provide a password!"],
+    required: true,
   },
 });
 

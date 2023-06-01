@@ -8,14 +8,13 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
-const fetch = require("node-fetch");
 
 // engine
 
 const { engine } = require("express-handlebars");
 const session = require("express-session");
 
-// other js files
+// module files
 
 const database = require("./database.js");
 const User = require("./models/User.js");
@@ -23,8 +22,9 @@ const User = require("./models/User.js");
 // rest
 
 const bcrypt = require("bcrypt");
+// const fetch = require("node-fetch");
 
-// express & express handlebars & express session
+// express & express handlebars
 
 app.use("/public", express.static("public"));
 app.engine("handlebars", engine({ defaultLayout: "main" }));
@@ -34,16 +34,21 @@ app.set("views", "views");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// session
+// express session
 
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
-    saveUninitialized: true,
-    resave: false,
+    secret: process.env.SESSION_SECRET, // used to encrypt the session data
+    saveUninitialized: true, // determines whether a new, unitialized should be saved
+    resave: false, // determines whether the session should be saved back to the session store
     // cookie: { secure: true },
   })
 );
+
+// req.session is usually used to store session-specific data
+// for example, req.session.username can be used as long as the session remains active
+
+// making a function and calling it on my /signup and /login routes, so that when you're already logged in, you get redirected to /profile
 
 const checkLogin = (req, res, next) => {
   if (req.session.username) {
@@ -54,13 +59,16 @@ const checkLogin = (req, res, next) => {
 
 // routes
 
+// the root route redirects you to the /login route
+
 app.get("/", (req, res) => {
   res.redirect("/login");
 });
 
+// in the following routes the error variable is made, which is set to an empty string. I pass this data in an object that contains data for the template.
 app.get("/signup", checkLogin, (req, res) => {
   const error = req.session.error;
-  req.session.error = "";
+  req.session.error = ""; // geen lege string maar een object waarin je statuscode hebt + message
   res.render("signup", { title: "Signup", error: error });
 });
 
@@ -75,7 +83,7 @@ app.get("/login", checkLogin, (req, res) => {
 app.post("/signup", async (req, res) => {
   try {
     const { username, email, age, password } = req.body;
-    const error = [];
+    const error = "";
 
     if (username && email && age && password) {
       const existingUsername = await User.findOne({ username: username });
@@ -117,16 +125,16 @@ app.post("/signup", async (req, res) => {
 
       if (password) {
         const passwordRegex =
-          /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+          /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,50}$/;
         if (!passwordRegex.test(password)) {
           req.session.error =
-            "Please make sure your password contains at least 8 characters, one capital letter, a number and a special character";
+            "Please make sure your password contains at least 8 characters with a maximum of 50, one capital letter, a number and a special character";
           return res.redirect("/signup");
         }
       }
 
       if (error.length > 0) {
-        req.session.signupError = error;
+        req.session.error = error;
         return res.redirect("/signup");
       } else {
         const saltRounds = 10;
@@ -155,7 +163,7 @@ app.post("/signup", async (req, res) => {
 app.post("/login", async (req, res) => {
   try {
     const { username, password } = req.body;
-    const error = [];
+    const error = "";
 
     if (username && password) {
       const user = await User.findOne({ username });
@@ -174,7 +182,7 @@ app.post("/login", async (req, res) => {
       }
 
       if (error.length > 0) {
-        req.session.signupError = error;
+        req.session.error = error;
         return res.redirect("/login");
       }
     } else {
@@ -197,21 +205,20 @@ app.get("/questions", (req, res) => {
 
 app.get("/matcher", async (req, res) => {
   if (req.session.username) {
+    // try {
+    //   const apiKey = process.env.API_KEY;
+    //   const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`;
+
+    //   const response = await fetch(url);
+    //   const data = await response.json();
+    //   const movies = data.results;
+    // } catch (error) {
+    //   console.log(error);
+    // }
     res.render("matcher", { title: "MovieMatcher" });
   } else {
     res.redirect("/login");
   }
-  // try {
-  //   const apiKey = process.env.API_KEY;
-  //   const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`;
-
-  //   const response = await fetch(url);
-  //   const data = await response.json();
-  //   const movies = data.results;
-
-  // } catch (error) {
-  //   console.log(error);
-  // }
 });
 
 app.get("/search", (req, res) => {

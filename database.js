@@ -8,8 +8,8 @@ const mongoose = require("mongoose");
 
 mongoose
   .connect(dbKey, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    useNewUrlParser: true, // use the new, improved URL parser
+    useUnifiedTopology: true, //
   })
   .then(() => {
     console.log("Connected to the database");

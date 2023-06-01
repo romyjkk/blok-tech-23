@@ -28,43 +28,17 @@
     </ul>
   </article>
 
-  {{!-- <article class="info-editor">
-
-    <h2>Edit your info</h2>
-
-    <form id="signup" method="POST" action="/profile">
-
-        <fieldset class="form-container">
-            <label for id="username">Username</label>
-            <input type="text" id="username" minlength="3" maxlength="20" name="username" required value="{{username}}"/>
-                
-            <label for id="email">Email</label>
-            <input type="email" id="email" name="email" required value="{{email}}"/>
-
-            <label for id="age">Age</label>
-            <input type="number" id="age" name="age" required value="{{age}}"/>
-
-            <label for id="password">Password</label>
-            <input type="password" id="password" minlength="8" maxlength="50" name="password" required value="{{password}}"/>
-
-            {{#if errors}}
-              <div class="error-container">
-                {{#each errors}}
-                  <p class="error-message">{{this}}</p>
-                {{/each}}
-              </div>
-            {{/if}}
-
-            <input type="submit" id="submit" class="login-button" value="Edit info" />
-        </fieldset>
-
-    </form>
-
-  </article> --}}
-
   <article class="buttons">
 
-    <a href="/delete">Delete your account</a>
+    <button class="expand">Delete your account</button>
+
+      <article class="hidden">
+        <p class="begging">Noo! Please, don't delete your account... here, have a joke to change your mind!</p>
+          <p><!-- Hier komt een grapje -->Grapj</p>
+
+        <a href="/delete">Delete</a>
+      </article>
+    
     <a href="/logout">Log out</a>
 
   </article>

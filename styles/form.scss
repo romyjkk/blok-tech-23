@@ -31,17 +31,13 @@
     }
 
     input:invalid {
-      &:focus {
-        border: 3px solid $primaryColor;
-        outline: none;
-      }
+      border: 3px solid $primaryColor;
+      outline: none;
     }
 
     input:valid {
-      &:focus {
-        border: 3px solid $sixthcolor;
-        outline: none;
-      }
+      border: 3px solid $sixthcolor;
+      outline: none;
     }
 
     .error-container {

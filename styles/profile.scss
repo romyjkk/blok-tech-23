@@ -26,6 +26,10 @@
       text-align: left;
     }
   }
+
+  @media (min-width: $md) {
+    width: 50%;
+  }
 }
 
 .profile-information {
@@ -46,6 +50,11 @@
     gap: 0.5rem;
     align-self: center;
     margin: 0 0 2rem 0;
+  }
+
+  @media (min-width: $md) {
+    margin-top: 2rem;
+    width: 50%;
   }
 }
 

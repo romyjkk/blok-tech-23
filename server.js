@@ -8,6 +8,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
+const fetch = require("node-fetch");
 
 // engine
 
@@ -194,12 +195,23 @@ app.get("/questions", (req, res) => {
   }
 });
 
-app.get("/matcher", (req, res) => {
+app.get("/matcher", async (req, res) => {
   if (req.session.username) {
     res.render("matcher", { title: "MovieMatcher" });
   } else {
     res.redirect("/login");
   }
+  // try {
+  //   const apiKey = process.env.API_KEY;
+  //   const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`;
+
+  //   const response = await fetch(url);
+  //   const data = await response.json();
+  //   const movies = data.results;
+
+  // } catch (error) {
+  //   console.log(error);
+  // }
 });
 
 app.get("/search", (req, res) => {

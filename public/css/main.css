@@ -424,32 +424,6 @@ header img {
   width: 60%;
   height: auto;
 }
-.matcher .matcher-buttons {
-  background: #ffffff;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-self: center;
-  border-radius: 45px;
-  width: 30%;
-  cursor: pointer;
-  margin: 4rem 0 2rem 0;
-}
-.matcher .matcher-buttons .icon {
-  width: 15%;
-  padding: 1rem;
-  transition: 0.5s;
-}
-.matcher .matcher-buttons .icon:active {
-  transform: translateX(-0.5em);
-  opacity: 0;
-}
-.matcher .matcher-buttons .icon:active:first-of-type {
-  transform: translateX(-0.5em);
-}
-.matcher .matcher-buttons .icon:active:nth-of-type(2) {
-  transform: translateX(0.5em);
-}
 
 .profile-container {
   display: flex;
@@ -475,6 +449,11 @@ header img {
 .profile-container div p {
   text-align: left;
 }
+@media (min-width: 768px) {
+  .profile-container {
+    width: 50%;
+  }
+}
 
 .profile-information {
   display: flex;
@@ -493,6 +472,12 @@ header img {
   gap: 0.5rem;
   align-self: center;
   margin: 0 0 2rem 0;
+}
+@media (min-width: 768px) {
+  .profile-information {
+    margin-top: 2rem;
+    width: 50%;
+  }
 }
 
 .buttons {

@@ -1,11 +1,6 @@
 @import "helpers/variables";
 @import "helpers/mixins";
 
-p {
-  // margin-bottom: 3rem;
-  // width: 80%;
-}
-
 .questions {
   width: 80%;
   align-self: center;
@@ -39,10 +34,6 @@ p {
         margin: 0.3em;
       }
 
-      label {
-        // color: $secondaryTextColor;
-      }
-
       input {
         cursor: pointer;
         &:active,
@@ -54,13 +45,6 @@ p {
   }
 
   .next-button {
-    // @include button(
-    //   $quaternaryColor,
-    //   $tertiaryColor,
-    //   1rem 2rem 1rem 2rem,
-    //   2rem 0 2rem 0
-    // );
-
     &:hover {
       background: $quaternaryColor;
       color: $tertiaryColor;

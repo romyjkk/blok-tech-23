@@ -11,4 +11,4 @@ playPauseButton.addEventListener("click", () => {
   lionelImage.classList.add("filteranimation");
 });
 
-// https://codepen.io/beauhaus/pen/bpzWEb
+// animation: https://codepen.io/beauhaus/pen/bpzWEb

@@ -1,5 +1,7 @@
 // Intersection Observer API
 
+// adding a nice animation when you load the login page for the first time
+
 document.addEventListener("DOMContentLoaded", () => {
   const section = document.querySelector(".container");
 
@@ -14,6 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   observer.observe(section);
 });
+
+// adding a nice animation on the "list" page
 
 document.addEventListener("DOMContentLoaded", () => {
   const scrollingSections = document.querySelectorAll(".list-item");

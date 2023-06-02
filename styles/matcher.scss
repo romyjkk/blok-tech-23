@@ -9,7 +9,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    // margin-bottom: 4rem;
     .off-to-the-side {
       margin-top: 2rem;
       background: $secondaryColor;
@@ -25,44 +24,23 @@
       align-items: center;
       position: relative;
       width: 60%;
+      max-width: 23rem;
       background: $secondaryColor;
       @include boxshadow(0px 4px 10px);
 
       .matcher-poster {
         width: 90%;
+        max-width: 20rem;
         align-self: center;
         padding: 1rem;
       }
+
+      .matcher-icons {
+        figure {
+          background: $tertiaryColor;
+          width: 3rem;
+        }
+      }
     }
   }
-
-  // .matcher-buttons {
-  //   background: $tertiaryColor;
-  //   display: flex;
-  //   flex-direction: row;
-  //   justify-content: space-between;
-  //   align-self: center;
-  //   border-radius: 45px;
-  //   width: 30%;
-  //   cursor: pointer;
-  //   margin: 4rem 0 2rem 0;
-  //   .icon {
-  //     width: 15%;
-  //     padding: 1rem;
-  //     transition: 0.5s;
-
-  //     &:active {
-  //       transform: translateX(-0.5em);
-  //       opacity: 0;
-  //     }
-
-  //     &:active:first-of-type {
-  //       transform: translateX(-0.5em);
-  //     }
-
-  //     &:active:nth-of-type(2) {
-  //       transform: translateX(0.5em);
-  //     }
-  //   }
-  // }
 }

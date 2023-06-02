@@ -1,48 +1,61 @@
 @import "helpers/variables";
 @import "helpers/mixins";
 
-.main-footer {
-  background: $secondaryColor;
-  width: 100%;
-  height: 8rem;
-  margin-top: auto;
-  display: flex;
-  justify-content: center;
-  border-top-left-radius: 100%;
-  border-top-right-radius: 100%;
-
-  .nav {
+body {
+  position: relative;
+  .main-footer {
+    background: $secondaryColor;
+    width: 100%;
+    height: 8rem;
+    margin-top: auto;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 70%;
-    margin-top: 1.5rem;
+    justify-content: center;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    position: sticky;
+    bottom: 0;
 
-    a {
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
-      background: $tertiaryColor;
+    .nav {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 70%;
+      margin: 1.5rem 0 1.5rem 0;
 
-      img {
-        width: 60%;
+      a {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        background: $tertiaryColor;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        img {
+          width: 60%;
+        }
+
+        &:first-of-type,
+        &:nth-of-type(4) {
+          margin-top: 1.5rem;
+        }
+
+        &:hover {
+          background: $quaternaryColor;
+        }
+
+        &:focus {
+          @include boxshadow(0px 0px 15px);
+        }
       }
 
-      &:first-of-type,
-      &:nth-of-type(4) {
-        margin-top: 1.5rem;
+      @media (min-width: $sm) {
+        width: 50%;
       }
 
-      &:hover {
-        background: $quaternaryColor;
-      }
-
-      &:focus {
-        @include boxshadow(0px 0px 15px);
+      @media (min-width: $md) {
+        width: 30%;
       }
     }
   }

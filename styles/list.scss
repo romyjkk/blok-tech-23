@@ -1,0 +1,51 @@
+@import "helpers/variables";
+@import "helpers/mixins";
+
+.list {
+  text-align: center;
+}
+
+.list-item {
+  transition: opacity 0.5s ease;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 2rem;
+
+  .movie-information {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 80%;
+    padding: 1rem;
+    background: $secondaryColor;
+
+    .movie-poster-sm {
+      width: 30%;
+      object-fit: cover;
+      max-width: 10rem;
+    }
+
+    p {
+      text-align: left;
+      font-size: 16px;
+    }
+  }
+
+  .matcher-icons {
+    position: absolute;
+    bottom: -1.8rem;
+    width: 30%;
+  }
+}
+
+.list-hidden {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.list-item.visible {
+  opacity: 1;
+}

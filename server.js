@@ -22,6 +22,7 @@ const User = require("./models/User.js");
 // rest
 
 const bcrypt = require("bcrypt");
+// const fetch = require("node-fetch");
 
 // express & express handlebars
 
@@ -124,10 +125,10 @@ app.post("/signup", async (req, res) => {
 
       if (password) {
         const passwordRegex =
-          /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,50}$/;
+          /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
         if (!passwordRegex.test(password)) {
           req.session.error =
-            "Please make sure your password contains at least 8 characters with a maximum of 50, one capital letter, a number and a special character";
+            "Please make sure your password contains at least 8 characters, one capital letter, a number and a special character";
           return res.redirect("/signup");
         }
       }
@@ -204,20 +205,21 @@ app.get("/questions", (req, res) => {
 
 app.get("/matcher", async (req, res) => {
   if (req.session.username) {
-    // try {
-    //   const apiKey = process.env.API_KEY;
-    //   const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`;
-
-    //   const response = await fetch(url);
-    //   const data = await response.json();
-    //   const movies = data.results;
-    // } catch (error) {
-    //   console.log(error);
-    // }
     res.render("matcher", { title: "MovieMatcher" });
   } else {
     res.redirect("/login");
   }
+  // try {
+  //   const apiKey = process.env.API_KEY;
+  //   const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`;
+
+  //   const response = await fetch(url);
+  //   const data = await response.json();
+  //   const movies = data.results;
+
+  // } catch (error) {
+  //   console.log(error);
+  // }
 });
 
 app.get("/search", (req, res) => {

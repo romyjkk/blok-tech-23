@@ -33,52 +33,7 @@
         align-self: center;
         padding: 1rem;
       }
-
-      .matcher-icons {
-        position: absolute;
-        bottom: -1rem;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        figure {
-          width: 3rem;
-          height: 3rem;
-          border-radius: 50%;
-          background: $tertiaryColor;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
-
-          img {
-            transition: 0.5s;
-          }
-
-          &:hover {
-            background: $quaternaryColor;
-          }
-
-          &:active:first-of-type {
-            img {
-              transform: scale(1.1);
-            }
-          }
-
-          &:active:nth-of-type(3) {
-            img {
-              transform: scale(1.1);
-              opacity: 0;
-            }
-          }
-        }
-      }
     }
-  }
-
-  .icon {
-    width: 60%;
-    height: auto;
   }
 
   // .matcher-buttons {

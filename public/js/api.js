@@ -1,3 +1,5 @@
+// fetch api and use it
+
 const theJoke = document.querySelector(".joke");
 const getJoke = document.querySelector(".generate-joke");
 

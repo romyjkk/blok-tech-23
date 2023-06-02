@@ -109,6 +109,15 @@ body .container .title {
   text-align: center;
   margin: 1rem 0 4rem 0;
 }
+body .animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+body .visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 @media (min-width: 576px) {
   body {
     background-position: center bottom;
@@ -118,6 +127,51 @@ body .container .title {
   body {
     gap: 4rem;
   }
+}
+
+.search form {
+  display: flex;
+  justify-content: center;
+}
+.search form input {
+  width: 80%;
+}
+
+.matcher-icons {
+  position: absolute;
+  bottom: -1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.matcher-icons figure {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.matcher-icons figure img {
+  transition: 0.5s;
+}
+.matcher-icons figure:hover {
+  background: #d9d9d9;
+}
+.matcher-icons figure:active:first-of-type img {
+  transform: scale(1.1);
+}
+.matcher-icons figure:active:nth-of-type(3) img {
+  transform: scale(1.1);
+  opacity: 0;
+}
+
+.icon {
+  width: 60%;
+  height: auto;
 }
 
 header {
@@ -395,41 +449,6 @@ header img {
   align-self: center;
   padding: 1rem;
 }
-.matcher .matcher-slider figure .matcher-icons {
-  position: absolute;
-  bottom: -1rem;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.matcher .matcher-slider figure .matcher-icons figure {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-.matcher .matcher-slider figure .matcher-icons figure img {
-  transition: 0.5s;
-}
-.matcher .matcher-slider figure .matcher-icons figure:hover {
-  background: #d9d9d9;
-}
-.matcher .matcher-slider figure .matcher-icons figure:active:first-of-type img {
-  transform: scale(1.1);
-}
-.matcher .matcher-slider figure .matcher-icons figure:active:nth-of-type(3) img {
-  transform: scale(1.1);
-  opacity: 0;
-}
-.matcher .icon {
-  width: 60%;
-  height: auto;
-}
 
 .profile-container {
   display: flex;
@@ -563,16 +582,49 @@ header img {
   }
 }
 
-.search form {
-  display: flex;
-  justify-content: center;
-}
-.search form input {
-  width: 80%;
+.list {
+  text-align: center;
 }
 
-h1.list {
-  text-align: center;
+.list-item {
+  transition: opacity 0.5s ease;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 2rem;
+}
+.list-item .movie-information {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 80%;
+  padding: 1rem;
+  background: #000000;
+}
+.list-item .movie-information .movie-poster-sm {
+  width: 30%;
+  object-fit: cover;
+  max-width: 10rem;
+}
+.list-item .movie-information p {
+  text-align: left;
+  font-size: 16px;
+}
+.list-item .matcher-icons {
+  position: absolute;
+  bottom: -1.8rem;
+  width: 30%;
+}
+
+.list-hidden {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.list-item.visible {
+  opacity: 1;
 }
 
 .error {

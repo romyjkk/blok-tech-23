@@ -10,10 +10,13 @@
     "postcompress": "{{ executes AFTER `compress` script }}",
     "nodemon-watch": "nodemon server.js",
     "sass-watch": "sass --no-source-map --watch styles/main.scss public/css/main.css",
+    "prefix": "postcss public/css/main.css --use autoprefixer -d public/css/prefixed/",
     "dev": "npm-run-all --parallel sass-watch nodemon-watch",
     "lint": "npx eslint server.js database.js ./models/User.js"
   },
+  "browserslist": "last 4 versions",
   "dependencies": {
+    "autoprefixer": "^10.4.14",
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
     "camelcase": "^7.0.1",
@@ -33,6 +36,7 @@
   },
   "devDependencies": {
     "eslint": "^8.40.0",
+    "postcss-cli": "^10.1.0",
     "prettier": "2.8.8"
   }
 }

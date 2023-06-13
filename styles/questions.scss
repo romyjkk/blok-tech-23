@@ -9,10 +9,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
 
   h2 {
-    padding: 2rem 1rem 2rem 1rem;
+    padding: 32px 16px 32px 16px;
     text-align: center;
   }
 
@@ -21,7 +21,7 @@
     background: $tertiaryColor;
     display: flex;
     flex-direction: column;
-    height: 10em;
+    height: 160px;
     overflow-y: scroll;
 
     fieldset {
@@ -31,7 +31,7 @@
       border-bottom: 1px solid $quaternaryColor;
       label,
       input {
-        margin: 0.3em;
+        margin: 4.8px;
       }
 
       input {
@@ -63,8 +63,8 @@
 }
 
 .bubble-container {
-  height: 2rem;
-  margin-bottom: 2rem;
+  height: 32px;
+  margin-bottom: 32px;
   display: flex;
   align-self: center;
   .progress-bubbles {
@@ -72,13 +72,13 @@
     align-items: center;
     .bubble {
       @include boxshadow(0px 2px 5px);
-      height: 1.5rem;
-      width: 1.5rem;
+      height: 24px;
+      width: 24px;
       background: $tertiaryColor;
       border-radius: 50%;
       display: inline-block;
       cursor: pointer;
-      margin: 0 1rem 0 1rem;
+      margin: 0 16px 0 16px;
 
       &:hover {
         background: $quaternaryColor;

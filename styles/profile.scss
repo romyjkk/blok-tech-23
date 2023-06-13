@@ -7,13 +7,13 @@
   justify-content: center;
   width: 90%;
   align-self: center;
-  gap: 1rem;
+  gap: 16px;
   background: $secondaryColor;
-  padding: 1rem;
+  padding: 16px;
 
   figure {
-    width: 5rem;
-    height: 5rem;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     background: $primaryColor;
 
@@ -49,19 +49,19 @@
 
   h2 {
     text-align: center;
-    margin: 1rem 0 2rem 0;
+    margin: 16px 0 32px 0;
   }
 
   ul {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 8px;
     align-self: center;
-    margin: 0 0 2rem 0;
+    margin: 0 0 32px 0;
   }
 
   @media (min-width: $md) {
-    margin-top: 2rem;
+    margin-top: 32px;
     width: 50%;
   }
 }
@@ -71,15 +71,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  margin: 2rem 0 0 0;
+  gap: 32px;
+  margin: 32px 0 0 0;
 
   a,
   button {
     @include button(
       $tertiaryColor,
       $primaryColor,
-      1rem 2rem 1rem 2rem,
+      16px 32px 16px 32px,
       0,
       3px solid $secondaryColor
     );
@@ -110,12 +110,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 1rem;
+    gap: 16px;
     background: $secondaryColor;
     width: 80%;
 
     .warning {
-      margin: 2rem 1rem 1rem 1rem;
+      margin: 32px 16px 16px 16px;
     }
 
     .joke {
@@ -127,11 +127,11 @@
     }
 
     button {
-      margin: 1rem 0 1rem 0;
+      margin: 16px 0 16px 0;
     }
 
     a {
-      margin-bottom: 2rem;
+      margin-bottom: 32px;
     }
 
     @media (min-width: $md) {

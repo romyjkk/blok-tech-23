@@ -64,12 +64,12 @@ p {
 
 .error .error-container h1 {
   font-family: "Poppins", "serif";
-  font-size: 10rem;
+  font-size: 160px;
 }
 .error .error-container p {
   font-family: "Poppins", "serif";
   font-style: italic;
-  font-size: 2rem;
+  font-size: 32px;
 }
 .error .error-container p .playpausebutton {
   text-decoration: underline;
@@ -93,7 +93,7 @@ p {
 body {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 32px;
   background-image: url("../images/background.jpeg");
   background-position: left bottom;
   background-repeat: no-repeat;
@@ -107,7 +107,7 @@ body .container {
 }
 body .container .title {
   text-align: center;
-  margin: 1rem 0 4rem 0;
+  margin: 16px 0 64px 0;
 }
 body .animate {
   opacity: 0;
@@ -125,7 +125,7 @@ body .visible {
 }
 @media (min-width: 1200px) {
   body {
-    gap: 4rem;
+    gap: 64px;
   }
 }
 
@@ -139,15 +139,15 @@ body .visible {
 
 .matcher-icons {
   position: absolute;
-  bottom: -1rem;
+  bottom: -16px;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 .matcher-icons figure {
-  width: 3rem;
-  height: 3rem;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background: #ffffff;
   display: flex;
@@ -176,12 +176,12 @@ body .visible {
 
 header {
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 16px;
   display: flex;
   justify-content: center;
 }
 header img {
-  max-width: 30rem;
+  max-width: 480px;
 }
 
 #login,
@@ -189,7 +189,7 @@ header img {
 #edit {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 32px;
   justify-content: center;
   width: 80%;
   align-self: center;
@@ -202,7 +202,7 @@ header img {
   text-align: left;
   border: none;
   background: #000000;
-  padding: 1rem;
+  padding: 16px;
   align-self: center;
   width: 90%;
 }
@@ -211,7 +211,7 @@ header img {
 #edit .form-container input {
   box-shadow: 0px 2px 5px #000000;
   border: none;
-  margin: 0.5rem 0 1.5rem 0;
+  margin: 8px 0 24px 0;
   border: 3px solid #000000;
 }
 #login .form-container input:hover,
@@ -239,8 +239,8 @@ header img {
   width: 100%;
   background: #5f0000;
   border-radius: 20px;
-  margin-bottom: 1.5rem;
-  padding: 0.5rem 0 0.5rem;
+  margin-bottom: 24px;
+  padding: 8px 0 8px;
   display: flex;
   justify-content: center;
 }
@@ -255,7 +255,7 @@ header img {
   #signup .form-container,
   #edit .form-container {
     width: 70%;
-    padding: 1rem 3rem 1rem 3rem;
+    padding: 16px 48px 16px 48px;
   }
 }
 @media (min-width: 768px) {
@@ -286,11 +286,11 @@ header img {
   color: #ffffff;
   background: #4f0000;
   border: 3px solid #000000;
-  padding: 1rem 2rem 1rem 2rem;
+  padding: 16px 32px 16px 32px;
   align-self: center;
   border-radius: 30px;
   cursor: pointer;
-  margin: 2rem 0 2rem 0;
+  margin: 32px 0 32px 0;
   text-decoration: none;
 }
 #login .login-button:hover,
@@ -317,13 +317,13 @@ header img {
   #login,
   #signup,
   #edit {
-    gap: 4rem;
+    gap: 64px;
   }
 }
 
 .italic {
   cursor: pointer;
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
   width: fit-content;
   align-self: center;
 }
@@ -344,10 +344,10 @@ header img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
 }
 .questions h2 {
-  padding: 2rem 1rem 2rem 1rem;
+  padding: 32px 16px 32px 16px;
   text-align: center;
 }
 .questions form {
@@ -355,7 +355,7 @@ header img {
   background: #ffffff;
   display: flex;
   flex-direction: column;
-  height: 10em;
+  height: 160px;
   overflow-y: scroll;
 }
 .questions form fieldset {
@@ -366,7 +366,7 @@ header img {
 }
 .questions form fieldset label,
 .questions form fieldset input {
-  margin: 0.3em;
+  margin: 4.8px;
 }
 .questions form fieldset input {
   cursor: pointer;
@@ -388,8 +388,8 @@ header img {
 }
 
 .bubble-container {
-  height: 2rem;
-  margin-bottom: 2rem;
+  height: 32px;
+  margin-bottom: 32px;
   display: flex;
   align-self: center;
 }
@@ -400,13 +400,13 @@ header img {
 .bubble-container .progress-bubbles .bubble {
   box-shadow: 0px 2px 5px #000000;
   border: none;
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 24px;
+  width: 24px;
   background: #ffffff;
   border-radius: 50%;
   display: inline-block;
   cursor: pointer;
-  margin: 0 1rem 0 1rem;
+  margin: 0 16px 0 16px;
 }
 .bubble-container .progress-bubbles .bubble:hover {
   background: #d9d9d9;
@@ -426,12 +426,12 @@ header img {
   justify-content: space-between;
 }
 .matcher .matcher-slider .off-to-the-side {
-  margin-top: 2rem;
+  margin-top: 32px;
   background: #000000;
   box-shadow: 0px 4px 10px #000000;
   border: none;
-  width: 1rem;
-  height: 21rem;
+  width: 16px;
+  height: 336px;
 }
 .matcher .matcher-slider figure {
   display: flex;
@@ -440,20 +440,20 @@ header img {
   align-items: center;
   position: relative;
   width: 60%;
-  max-width: 23rem;
+  max-width: 368px;
   background: #000000;
   box-shadow: 0px 4px 10px #000000;
   border: none;
 }
 .matcher .matcher-slider figure .matcher-poster {
   width: 90%;
-  max-width: 20rem;
+  max-width: 320px;
   align-self: center;
-  padding: 1rem;
+  padding: 16px;
 }
 .matcher .matcher-slider figure .matcher-icons figure {
   background: #ffffff;
-  width: 3rem;
+  width: 48px;
 }
 
 .profile-container {
@@ -462,13 +462,13 @@ header img {
   justify-content: center;
   width: 90%;
   align-self: center;
-  gap: 1rem;
+  gap: 16px;
   background: #000000;
-  padding: 1rem;
+  padding: 16px;
 }
 .profile-container figure {
-  width: 5rem;
-  height: 5rem;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   background: #4f0000;
 }
@@ -503,18 +503,18 @@ header img {
 }
 .profile-information h2 {
   text-align: center;
-  margin: 1rem 0 2rem 0;
+  margin: 16px 0 32px 0;
 }
 .profile-information ul {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 8px;
   align-self: center;
-  margin: 0 0 2rem 0;
+  margin: 0 0 32px 0;
 }
 @media (min-width: 768px) {
   .profile-information {
-    margin-top: 2rem;
+    margin-top: 32px;
     width: 50%;
   }
 }
@@ -524,8 +524,8 @@ header img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  margin: 2rem 0 0 0;
+  gap: 32px;
+  margin: 32px 0 0 0;
 }
 .buttons a,
 .buttons button {
@@ -533,7 +533,7 @@ header img {
   color: #ffffff;
   background: #4f0000;
   border: 3px solid #000000;
-  padding: 1rem 2rem 1rem 2rem;
+  padding: 16px 32px 16px 32px;
   align-self: center;
   border-radius: 30px;
   cursor: pointer;
@@ -564,12 +564,12 @@ header img {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
+  gap: 16px;
   background: #000000;
   width: 80%;
 }
 .buttons article .warning {
-  margin: 2rem 1rem 1rem 1rem;
+  margin: 32px 16px 16px 16px;
 }
 .buttons article .joke {
   width: 80%;
@@ -580,10 +580,10 @@ header img {
   }
 }
 .buttons article button {
-  margin: 1rem 0 1rem 0;
+  margin: 16px 0 16px 0;
 }
 .buttons article a {
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
 }
 @media (min-width: 768px) {
   .buttons article {
@@ -600,22 +600,22 @@ header img {
   display: flex;
   justify-content: center;
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
 }
 .list-item .movie-information {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 16px;
   width: 80%;
-  padding: 1rem;
+  padding: 16px;
   background: #000000;
 }
 .list-item .movie-information .movie-poster-sm {
   width: 30%;
   object-fit: cover;
-  max-width: 10rem;
+  max-width: 160px;
 }
 .list-item .movie-information p {
   text-align: left;
@@ -623,7 +623,7 @@ header img {
 }
 .list-item .matcher-icons {
   position: absolute;
-  bottom: -1.8rem;
+  bottom: -28.8;
   width: 30%;
 }
 @media (min-width: 992px) {
@@ -657,12 +657,12 @@ header img {
   align-items: center;
 }
 .error .error-button-container width a {
-  padding: 1rem;
+  padding: 16px;
   border: 2px solid #ffffff;
   text-align: center;
 }
 .error .error-button-container {
-  padding: 1rem;
+  padding: 16px;
   border: 2px solid #ffffff;
 }
 
@@ -684,7 +684,7 @@ body {
 body .main-footer {
   background: #000000;
   width: 100%;
-  height: 8rem;
+  height: 128px;
   margin-top: auto;
   display: flex;
   justify-content: center;
@@ -698,11 +698,11 @@ body .main-footer .nav {
   flex-direction: row;
   justify-content: space-between;
   width: 70%;
-  margin: 1.5rem 0 1.5rem 0;
+  margin: 24px 0 24px 0;
 }
 body .main-footer .nav a {
-  width: 3rem;
-  height: 3rem;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background: #ffffff;
   display: flex;
@@ -714,7 +714,7 @@ body .main-footer .nav a img {
   width: 60%;
 }
 body .main-footer .nav a:first-of-type, body .main-footer .nav a:nth-of-type(4) {
-  margin-top: 1.5rem;
+  margin-top: 24px;
 }
 body .main-footer .nav a:hover {
   background: #d9d9d9;

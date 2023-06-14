@@ -1,7 +1,5 @@
 // 404 page (playing audio + adding filter to the image)
 
-console.log("Hello?");
-
 const lionelImage = document.querySelector(".error");
 const hello = new Audio("../public/audio/hello.mp3");
 const playPauseButton = document.querySelector(".playpausebutton");

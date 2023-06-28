@@ -18,7 +18,14 @@
 
             <label for="password">Password</label>
             <input type="password" id="password" name="password" minlength="8" maxlength="50" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,50}$" required/>
-                
+
+            <ul class="password-check">
+                <li class="characters red">- Atleast 8 characters</li>
+                <li class="letters red">- Lower and uppercase letters</li>
+                <li class="numbers red">- Numbers</li>
+                <li class="specialcharacters red">- Special characters</li>
+            </ul>
+
                 {{#if error}}
                     <div class="error-container">
                         <p class="error-message">{{ error }}</p>

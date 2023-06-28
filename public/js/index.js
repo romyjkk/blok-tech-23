@@ -15,11 +15,48 @@ window.addEventListener("DOMContentLoaded", () => {
   loginForm.setAttribute("novalidate", true);
 });
 
-// expanding text when you click the "delete your account" button
+// password validation
 
-const expandButton = document.querySelector(".expand");
-const expandableContent = document.querySelector("#hidden-content");
+let passwordInput = document.getElementById("password");
+let characters = document.querySelector(".characters");
+let letters = document.querySelector(".letters");
+let numbers = document.querySelector(".numbers");
+let specialCharacters = document.querySelector(".specialcharacters");
 
-expandButton.addEventListener("click", () => {
-  expandableContent.classList.toggle("hidden");
+const checkPasswordStrength = (passwordValue) => {
+  if (passwordValue.length >= 8 && passwordValue.length <= 50) {
+    characters.classList.remove("red");
+    characters.classList.add("green");
+  } else {
+    characters.classList.add("red");
+    characters.classList.remove("green");
+  }
+
+  if (passwordValue.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) {
+    letters.classList.remove("red");
+    letters.classList.add("green");
+  } else {
+    letters.classList.add("red");
+    letters.classList.remove("green");
+  }
+
+  if (passwordValue.match(/([0-9])/)) {
+    numbers.classList.remove("red");
+    numbers.classList.add("green");
+  } else {
+    numbers.classList.add("red");
+    numbers.classList.remove("green");
+  }
+
+  if (passwordValue.match(/([!,%,&,@,#,$,^,*,?,_,~])/)) {
+    specialCharacters.classList.remove("red");
+    specialCharacters.classList.add("green");
+  } else {
+    specialCharacters.classList.add("red");
+    specialCharacters.classList.remove("green");
+  }
+};
+
+passwordInput.addEventListener("input", () => {
+  checkPasswordStrength(passwordInput.value);
 });

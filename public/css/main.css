@@ -231,6 +231,16 @@ header img {
   border: 3px solid #2a6e05;
   outline: none;
 }
+#login .form-container .password-check .red,
+#signup .form-container .password-check .red,
+#edit .form-container .password-check .red {
+  color: #4f0000;
+}
+#login .form-container .password-check .green,
+#signup .form-container .password-check .green,
+#edit .form-container .password-check .green {
+  color: #2a6e05;
+}
 #login .form-container .error-container,
 #signup .form-container .error-container,
 #edit .form-container .error-container {
@@ -239,7 +249,7 @@ header img {
   width: 100%;
   background: #5f0000;
   border-radius: 20px;
-  margin-bottom: 24px;
+  margin: 24px 0 24px 0;
   padding: 8px 0 8px;
   display: flex;
   justify-content: center;
